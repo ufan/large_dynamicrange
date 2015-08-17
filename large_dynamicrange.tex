@@ -1,0 +1,404 @@
+\documentclass[5p, times]{elsarticle}
+
+%%%%%%%%%%%%%%   Preample  %%%%%%%%%%%%%%%%%%
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+%% for celcius symbol
+\usepackage{textcomp}
+
+%% for units
+\usepackage{siunitx}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers},  end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+\usepackage{lineno}
+\modulolinenumbers[5]
+
+\usepackage{hyperref}
+
+%% package for type Greek letters without entering into math-mode
+\usepackage{textgreek}
+
+%% package for large picture in two-colume
+\usepackage{dblfloatfix}
+\usepackage{fixltx2e}
+\usepackage{float}
+
+\usepackage{comment}
+
+%% only jpg pdf eps are allowed, tiff format are not allowed in latex
+%% eps in principle can't be compiled by pdflatex, pdf not compiled by latex, but Kile can do some intermedate conversion to allow this happen.
+\DeclareGraphicsExtensions{.pdf, .eps, .jpg}
+%%opening
+\journal{NIMA}
+
+\begin{document}
+
+%%%%%%%%%%%%%% Front Matter %%%%%%%%%%%%%%%%%%
+\begin{frontmatter}
+
+\title{Design of a large dynamic readout unit for PSD at DAMPE}
+
+\author[imp,lzu,ucas]{Yong Zhou}
+
+\author[imp]{Yuhong Yu\corref{corresponding_author}}
+\cortext[corresponding_author]{Corresponding author}
+\ead{yuyuhong@impcas.ac.cn}
+
+\author[imp]{Zhiyu Sun}
+\author[imp]{Yongjie Zhang}
+\author[imp]{Fang Fang}
+\author[imp]{Junling Chen}
+
+\author[lzu]{Bitao Hu}
+
+\address[imp]{Institute of Modern Physics, Chinese Academy of Sciences,  509 Nanchang Road,  Lanzhou,  730000,  P.R.China}
+\address[lzu]{School of Nuclear Science and Technology,  Lanzhou University,  222 South Tianshui Road,  Lanzhou,  730000,  P.R.China}
+\address[ucas]{Graduate University of the Chinese Academy of Sciences,  19A Yuquan Road,  Beijing,  100049,  P.R.China}
+
+%%
+\begin{abstract}
+
+A Plastic Scintillator Detector (PSD), consisting of individual 82 organic plastic scintillator strips with 1 cm thick,
+located at the top of DAMPE (DArk Matter Particle Explore), has been developed. It mainly serves as anti-coincidence
+detector, also as a charge detector to measure cosmic ray nuclei up to charge $Z=20$. A large dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been deduced after consideration various contributions. Integrating of a PMT with double dynodes
+readout and an ASIC chip VA160, a large dynamic readout system has been presented. A cosmic ray muons and an
+accelerator beam test have been used to verify this design, respectively. The results show that the readout system
+could satisfy the required dynamic range. 
+
+\end{abstract}
+
+%%
+\begin{keyword}
+Plastic scintillator
+\sep VA160
+\sep large dynamic range
+\sep double dynodes readout
+%% PACS codes here,  in the form: \PACS code \sep codes
+
+%% MSC codes here,  in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+%%%%%%%%%%%%%%%%  Introduction  %%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:introduction}
+
+Many space experiments aim to fundamental physics research in the universe by observation of the high energy cosmic
+rays, such as the ATIC balloon-borne experiment [1], the satellite-based experiment of PAMELA [2] and the AMS-02
+experiment [3]. DAMPE is a satellite-borne apparatus in the framework of Strategic Pioneer Research Program in Space
+Science of the Chinese Academy of Sciences (CAS). The main scientific objective of DAMPE is to identify possible Dark
+Matter signatures by measuring high energy electrons, as well as in new discoveries in high energy gamma astronomy. It
+has also great potential to study how high energy cosmic rays origin and acceleration, and how they propagate. The
+DAMPE detector is designed to cover a broad energy range. It will provide high energy resolution spectra
+of electron, positron, proton, helium nuclei and other heavy ions in the energy band from 10GeV to 1PeV.
+
+In the design of the satellite-borne apparatus DAMPE, a detector sensitive to nuclear charge Z that has a large area,
+sufficient light yield and charge resolution should be developed to measure relativistic cosmic-ray nuclei. Organic
+plastic scintillators are ideally suited for this task. A PSD, located at the top of DAMPE, is one of the key
+sub-detectors of the DAMPE and completely designed and built at the Institute of Modern Physics, CAS. Its main goals
+are to serves as an anti-coincidence detector to distinguish electrons and gamma rays, also as a charge detector to
+measure cosmic ray composition for elements from hydrogen (Z=1) to calcium (Z=20). The PSD consists of individual 82
+organic plastic scintillator strips and covers an overall active area of 82 cm×82 cm. The scintillator strips, with a
+dimension of 884 mm×28 mm×10 mm, are parallel to each other in one direction layer and aligned perpendicularly to the
+two layers. To avoid the presence of any ineffective detection area, the strips at the same layer are staggered by 0.8
+cm. A scintillator typed EJ-200 [5], produced by Texas Eljen Corporation, has been adopted to the PSD. Each module is
+connected to a PMT Hamamatsu R4443MOD2 which is a modified version of R4443 [6], via a silicon rubber EJ-560 at each
+end [5]. To improve scintillation light collection efficiency and uniformity, each scintillator strip is wrapped in
+Tyvek 1056D produced by Dupont [7], and then covered with for black Polyvinyl chloride tube to light tightness. 
+
+In this paper, we report on the design of a large dynamic range readout system for the segmented scintillators at the
+PSD to challenge for measuring the energy spectra of the abundant nuclei with Z${\leq}$20 and the identifying electrons
+and gamma rays. A cosmic ray and a beam test have been done to verify whether this design could cover such a dynamic
+range of energy deposition measurements.
+
+%%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
+\section{Dynamic range requirement}
+\label{sec:requirement}
+
+Many contributions would enlarge the required dynamic range. The energy deposition in the organic plastic scintillator
+and its scintillation efficiency is one of the most important contribution to the required dynamic range. When minimum
+ionizing particles (MIPs) passing through 1 cm thick scintillator strip they release a certain amount of energy. This
+value is about 2 MeV[7], defined as 1 MIPs. For a charge particle much heavier than electron the specific ionization
+energy loss is well parameterized by the famous Bethe-Bloch formula. The mean rate of energy loss increases with the
+charged number Z of the relativistic incident particle. However, the dependence of light output from energy deposition
+is usually nonlinear in organic plastic scintillator. A relationship between the response of the scintillator to a
+charged particle and the specific energy loss is well modeled by Briks-Chou law [8,9]. 
+
+In order to know the quantitative information on the light output response of organic plastic scintillator to energetic
+heavy ions at relativistic energies, many experiments investigate this nonlinear effect [10,11,12]. The maximum energy
+deposition in 1 cm thick scintillator strip at the PSD is about 270 MIPs from the charge of cosmic rays nuclei up to
+Z=20 when they travelling through the detector medium vertically. Moreover, a field view of DAMPE will determine the
+maximum length of incident charged particle, and this energy deposition is about 540 MIPs as the max incident
+inclination angle is approximately 60\textsuperscript{o}.
+
+Another contribution to the dynamic range of the energy deposition is the light attenuation in a long scintillator
+strip. In the case where a specific geometry and a wrapping material are given to the scintilltor strips at the PSD,
+the light attenuation is definite. After selection of the scintillator strip, a reduction ratio in the intensity of the
+scintillation light is hoped to smaller than 50\% as the incident particle hit the middle position perpendicularly.
+Since two charge measurements are carried on with the PMTs placed in both sides of a given strip and these two PMTs are
+reserved for each other, a mean rate of energy deposition range from 0.5 MIPs to 1080 MIPs at least is required for
+cosmic ray nuclei from Z=1 up to Z=20.
+
+The fluctuation of energy loss by ionization of a charged particle in a thin scintillator is also taken into account.
+Assumption the energy resolution of the fluctuation is 10\% ($\sigma $), a maximum measurable energy deposition per
+scintillator strip up to 1350 MIPs is required as a 5$\sigma $ width is accepted, while a minimum value down to 0.25
+MIPs is required at least. Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 MIPs to 1400
+MIPs could meet all requirements.
+
+
+\section{Design}
+\label{sec:design}
+
+It’s difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. There
+are several ways to achieve a high dynamic readout were reported [13,14,15]. To measure the energy deposition in the
+range with 4 orders of magnitude at each plastic scintillator strip of PSD, a readout system that uses a PMT with
+double dynode outputs coupled to FEE with an ASIC chip has been developed and performed. A low power consumption ASIC
+chip known as VA160, which can be seen as a modified version of the VA32-HDR14.2, developed by IDEAS (Norway) [16], is
+used as the FEE for the PSD. This VA160 chip is optimized for positive input signals for the PMT dynodes output, and
+the analog to digital conversion is performed by a 14-bit ADC. The saturation level is about 12 pC, and the RMS noise
+of this chip is \~{}0.8 fC.
+
+Among the PSD, those of the lower dynamic range 0.1 MIPs will be need to measure. An input noise of the PSD whole system
+about 6 fC is expected for the detection of the incident particles. To distinguish signal from noise clearly, a
+5$\sigma $ separation of the detector pedestal is required, so we can deduce that 1 MIPs energy deposition should be
+better to set to \~{}300 fC. Thus a dynamic range from 0.1 MIPs to 40 MIPs can be achieved for one electronic channel.
+This dynamic range could not cover the total required dynamic range, so a PMT with double dynodes readout is
+indispensible. Fig.~\ref{fig:readout_scheme} shows the combination of dual-gain photo devices and VA160 chip per each scintillator channel.
+It’s shown that the signals from the same PMT are sent to different VA160 chip separately to reduce the crosstalk
+between the two dynodes.
+
+\begin{figure*}
+\centering
+ \includegraphics[width=140mm]{readout_scheme}
+\caption{Readout scheme of PSD.}
+\label{fig:readout_scheme}
+\end{figure*} 
+
+As MIPs penetrating a long strip, the efficiency of light transmission is limited by total reflection angle, and that
+not more than 22.5\% fraction of scintillation light would reach the two ends of the strip. Taking into account that
+the scintillator EJ-200 generates one photon for every 100 eV of deposited energy, we can calculate the number of
+photon electrons (PEs) collected by one end of PMT as MIPs penetrating 1 cm thick strip in the middle point from
+Eq.~\ref{eq:pecalculation}.
+
+\begin{equation}
+ N_{PEs} = \frac{1}{2} \times \frac{\SI[per-mode=symbol]{2}{\mega\electronvolt\per\centi\meter}}{\SI{100}{\electronvolt}} \times 0.225
+           \times \varepsilon_{1} \times \varepsilon_{2} \times \varepsilon_{3} \times \varepsilon_{4} \times \SI{1}{\centi\meter}
+        \approx \SI{45}{PEs/mip}
+\label{eq:pecalculation}
+\end{equation} 
+
+Where $\varepsilon $\textsubscript{1} is the reduction ratio related to the intensity of the scintillation light between
+the hit position and the end of the strip, and this value is controlled to smaller than 50\%. The value of$\varepsilon
+$\textsubscript{2}, corresponding to the quantum efficiency of the readout PMT, is about 0.15. The
+parameter$\varepsilon $\textsubscript{3 }is the transmission ratio of a 3 mm thick silicon rubber optical interface,
+and this value is approximately 0.9. The last parameter $\varepsilon $\textsubscript{4 }is determined by the geometry
+efficiency, which is the ratio of the effective photocathode area of the readout device and the cross section of the
+scintillator strip , and the calculated value is approximately 0.3.
+
+The chosen PMT R4443MOD2, composed of 10 stage dynodes, has a gain factor of 1×10\textsuperscript{6} at the supply high
+voltage of 1000V, which is obviously too high for the VA160 chip. Using the standard voltage divider and supply voltage
+from Hamamatsu, a simple calculation to obtain the multiplication factor of the two adjacent dynodes is 4. To match the
+dynamic range of VA160, the signal from the middle dynodes is extracted to reduce the gain factor of the PMT. The 8th
+dynode (Dy8), with a gain of 6×10\textsuperscript{4} from a rough calculation at given standard voltage, is the optimal
+selection to test the MIPs signals. The positive charge outputs from Dy8 is 450 fC, which is a little larger than our
+expectation 300 fC, and the difference can be eliminated easily by fine adjustment of the supply high voltage of the
+PMTs. To cover the required upper dynamic range, an earlier stage 5th dynode (Dy5) is used to the larger signals
+measurements, as the relative gain factor across three dynodes is 64 at standard supply voltage from a simple
+calculation. Since the operating voltage is smaller than the standard voltage, the relative gain of Dy8/Dy5 is expected
+to 50±15 times. Assumption the relative gain between the two dynodes is 35 times, then the Dy5 will cover an energy
+range from 3.5 MIPs to 1400 MIPs. Therefore, the total readout system could achieve the demanded wide range of 4
+orders, and also provide a cross calibration between the two dynodes. Figure 2 shows the circuit diagram of the PMT
+divider. It’s shown that the voltage distribution across the dynodes is the same. To improve the output linearity of
+the input pulse, decoupling capacitors are connected to the last few stages using a parallel mode. To protect the high
+voltage power, two capacitors in series are used in the output of dynodes.
+
+\begin{figure*}
+\centering
+ \includegraphics[width=140mm]{divider}
+\caption{Circuit diagram of the voltage divider.}
+\label{fig:divider}
+\end{figure*} 
+
+\section{Tests Result}
+\label{sec:result}
+
+\subsection{Test with Cosmic Ray}
+\label{sec:cosmicray}
+
+Cosmic ray muons are the most numerous energetic charged at sea level with a mean energy of about 4 GeV, and are
+typically MIPs. As muons penetrating orthogonally in 1 cm scintillator, the amount of energy around 1 MIPs leaves on
+average per unit length. So a cosmic ray muons test was used to study the MIPs response at the laboratory. The layout
+of the test setup for a scintillator strip with cosmic ray muons is shown in Fig.~\ref{fig:cosmic_test}. Two small trigger, with the
+dimension of \ 1.0×1.0×1.0 cm\textsuperscript{3}, also made with scintillator are fixed on a movable support to
+investigate the performance of the readout system, and point-by-point measurement has been carried out. 
+
+\begin{figure*}
+ \centering
+ \includegraphics[width=140mm]{cosmic_test}
+\caption{The experimental setup for the cosmic ray test.}
+\label{fig:cosmic_test}
+\end{figure*} 
+
+Fig.~\ref{fig:mip} shows a typical MIPs energy spectrum read out from Dy8. The amplitude spectrum has an asymmetric form with a
+longer right-hand tail which is characteristic for thin absorbers. The most probable amplitude of the distribution
+characterizing mean energy losses for MIPs is obtained by fitting a Landau function to the spectrum as shown in Figure
+4. The most probable value of MIPs signals is 396.5 ADC counts. It’s approximately 320 fC when the ADC count is
+converted into charge. The amplitude distribution of the pedestal for each signal channel is also shown in Figure 4.
+From the Figure, we can find that the input noise of the whole PSD system is approximate 3 fC, which is merely half of
+the expected value. As a result of 0.1 MIPs signals, the most probable value of the signal-to-noise of the PSD system
+is greater than 10, and this value is exceeding the expected requirement for a 5$\sigma $ separation from the whole PSD
+detector pedestal.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=90mm]{mip}
+\caption{The pulse height distribution of cosmic muons from a low gain channel Dy8.}
+\label{fig:mip}
+\end{figure} 
+
+The light attenuation of the scintillator strip could not be negligible for the required dynamic range. Fig.~\ref{fig:attenuation} shows
+the charge amplitude at various locations along the scintillator strip, and it’s found that the amplitude is well
+fitted by an exponent fit. In the figure, the charge amplitude at different hit locations is scaled to the middle hit
+position. It’s shown that the amplitude of charge pulse is not independent on the hit position. From the fitting data,
+the ratio between the nearest and the farthest hit position from the same readout PMT is not greater than 4, so it is
+not beyond the former desired value. 
+
+\begin{figure}
+ \centering
+ \includegraphics[width=90mm]{attenuation}
+\caption{The charge pulse amplitude at different hit positions along the tested scintillator strip.}
+\label{fig:attenuation}
+\end{figure} 
+
+The charge ratio of a low gain channel Dy8 and a high gain channel Dy5 is shown in Fig.~\ref{fig:dy58}. From figure, the charge
+collection of the Dy8 reach the maximum dynamic range of the VA160, and the saturation level is found to be about 12
+pC. From a linearity fit, the relative gain for Dy8/Dy5 of 44.6 could be derived, so the upper dynamic range of about
+1670 MIPs can be obtained from a calculation using Eq.~\ref{eq:range}.
+\begin{equation}
+ Range_{upper} = k_{e}(Dy8/Dy5)
+ \label{eq:range}
+\end{equation} 
+Where $k_e$ is the VA160 charge dynamic range, and the adopted upper range of VA160 is 12
+pC. Apparently, the required upper dynamic range1400 MIPs could be covered by our design.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=90mm]{dy58}
+\caption{The correlation between the signals in a low gain channel Dy8 and a high gain Dy5.}
+\label{fig:dy58}
+\end{figure} 
+
+\subsection{Test with Ion Beam}
+\label{sec:beam}
+
+A scintillator strip of PSD were tested at CERN SPS ion beam facility to verify our design to the required upper dynamic
+range. A primary of \textsuperscript{40}Ar (Z=18) was accelerated to 40 A GeV/c, and the charge of Argon crossing the
+scintillator strip was measured by looking at its energy loss. The most probable value and the sigma of energy
+deposition from a relativistic Argon beam are about 217 MIPs and 4.2\% in the Fig.~\ref{fig:Ar}, respectively. A linear
+extrapolation is used to obtain the energy deposition for the Calcium (Z=20), and the most probable energy deposition
+for PSD scintillator strip is 268 MIPs from a calculation. Since the quenching effect existing, the actual energy
+deposition is a little smaller than 268 MIPs, and this value is not out of our former estimation. Assumption the sigma
+of energy deposition is 5\%, the upper limit of the amplitude of the charge pulse is 1340 MIPs as the incident Calcium
+particles cross the scintillator strip with the largest field view of DAMPE and a 5$\sigma $ energy fluctuation is
+considered for the nearer readout PMT. This value is within the limits of our design.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=90mm]{Ar}
+\caption{The energy deposition distribution from a relativistic $^{40}Ar$ beam.}
+\label{fig:Ar}
+\end{figure} 
+
+\section{Conclusion}
+\label{sec:conclustion}
+
+A broad energy dynamic range of 0.1 MIPs\~{}1400 MIPs required for each PSD has been deduced from a number of
+contributions, including energy deposition of nuclei up to charge Z\~{}20, light attenuation, particle incidence angle
+and fluctuation of energy loss. A readout system that used a PMT with double dynodes output coupled to FEE with a chip
+VA160 optimized for positive polarity signals has been developed and used to measure the energy deposition in a
+scintillator strip. Cosmic ray muons were used to investigate the influence of scintillation light attenuation, MIPs
+peak and the equivalent noise of the whole detector system. The input noise of the whole PSD system is approximately 3
+fC, and the most probable value of the signal-to-noise is greater than 10 for the lower signals with 0.1 MIPs energy
+deposition. It’s also found that the required upper dynamic range1400 MIPs could be covered by our design easily. A
+relativistic argon beam test has been also used to verify the design. Once again the result shows that the readout
+system could satisfy the large dynamic range requirements.
+
+%%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgement}
+\label{sec:acknowledgement}
+
+This work was supported by the Strategic Priority Research Program on Space Science of the Chinese Academy of Science,
+Grant No. XDA04040202- 3. The authors wish to thank all the people from DAMPE collaboration who helped make this work
+possible.
+
+%%%%%%%%%%%%%%%%   Bibliography  %%%%%%%%%%%%%%%%%%%%%%%
+%% bibliography style
+\section*{References}
+\label{sec:reference}
+\bibliographystyle{elsarticle-num}
+
+%% From BibTex file
+\bibliography{mybib}
+
+\end{document}
+\endinput
+
+
+
+
+
+
+
+References
+
+[1] T. G. Guzik, \emph{et al.}, the 26th International Cosmic Ray Conference, August, 1999.
+
+[2] P. Picozza, \emph{et al.}, Nuclear Instruments and Methods in Physics Research A 623 (2010) 672. 
+
+[3] M.Aguilar, \emph{et al.}, Physical Review Letters 110, (2013) 141102-1\~{}10.
+
+[4] Chang Jin. Chin. J. Space Sci, 2014,34(5):550-557
+
+[5] \url{http://www.eljentechnology.com/}
+
+[6] \url{http://hamamatsu.com/}
+
+[7] \url{http://www.dupont.com/}
+
+[8] \href{http://pdg.lbl.gov/2014/html/authors_2014.html}{K.A.
+Olive~}\href{http://pdg.lbl.gov/2014/html/authors_2014.html}{\textit{et
+al.}}\href{http://pdg.lbl.gov/2014/html/authors_2014.html}{~(Particle Data Group)}, Chin. Phys. C,~38, 090001 (2014)
+
+[9] J. B. Birks. Proc. Phys. Soc. A 64, 874 (1951).
+
+[10] J. B. Birks. The Theory and Practice of Scintillation Counting. Pergamon Press, London, (1964).
+
+[11] Robert DWYER, \emph{et al.}, Nuclear Instruments and Methods in Physics Research A 242 (1985) 171-176
+
+[12] V.Bindi, \emph{et al.}, Performance of AMS-02 Time of Flight .29th International Cosmic Ray Conference Pune (2005) 9,41-44
+
+[13] P.S.Marrocchesi, er al., Nuclear Instruments and Methods in Physics Research A 659 (2011) 477-483
+
+[14] Katayose Y \emph{et al.} Development of High Dynamic Range Read-out System Using Multi-photodiode for the Total absorption
+Calorimeter of CALET. In: 30TH International Cosmic Ray Conference. Mexico: 2008, 2(OG part 1). 437–
+
+440
+
+[15] Kampert K H \emph{et al.} Nuclear Instruments and Methods in Physics Research A 349 (1994) 81–95
+
+[16] Zhang Yunlong \emph{et al.} Chinese Physics C, 2012, 36(1): 71-73
+
+[17] Integrated Detector Electronics AS (IDEAS), VA160 datasheet, ( \url{http://www.ideas.no}).
+
+
