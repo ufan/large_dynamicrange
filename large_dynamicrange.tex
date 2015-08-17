@@ -126,6 +126,30 @@ range of energy deposition measurements.
 \section{Dynamic range requirement}
 \label{sec:requirement}
 
+\begin{figure*}
+\centering
+ \includegraphics[width=140mm]{readout_scheme}
+\caption{Readout scheme of PSD.}
+\label{fig:readout_scheme}
+\end{figure*} 
+
+\begin{figure*}
+\centering
+ \includegraphics[width=140mm]{divider}
+\caption{Circuit diagram of the voltage divider.}
+\label{fig:divider}
+\end{figure*} 
+
+\begin{figure*}[t]
+ \centering
+ \includegraphics[width=140mm]{cosmic_test}
+\caption{The experimental setup for the cosmic ray test.}
+\label{fig:cosmic_test}
+\end{figure*} 
+
+\section{Design}
+\label{sec:design}
+
 Many contributions would enlarge the required dynamic range. The energy deposition in the organic plastic scintillator
 and its scintillation efficiency is one of the most important contribution to the required dynamic range. When minimum
 ionizing particles (MIPs) passing through 1 cm thick scintillator strip they release a certain amount of energy. This
@@ -156,10 +180,6 @@ scintillator strip up to 1350 MIPs is required as a 5$\sigma $ width is accepted
 MIPs is required at least. Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 MIPs to 1400
 MIPs could meet all requirements.
 
-
-\section{Design}
-\label{sec:design}
-
 It’s difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. There
 are several ways to achieve a high dynamic readout were reported [13,14,15]. To measure the energy deposition in the
 range with 4 orders of magnitude at each plastic scintillator strip of PSD, a readout system that uses a PMT with
@@ -177,13 +197,6 @@ This dynamic range could not cover the total required dynamic range, so a PMT wi
 indispensible. Fig.~\ref{fig:readout_scheme} shows the combination of dual-gain photo devices and VA160 chip per each scintillator channel.
 It’s shown that the signals from the same PMT are sent to different VA160 chip separately to reduce the crosstalk
 between the two dynodes.
-
-\begin{figure*}
-\centering
- \includegraphics[width=140mm]{readout_scheme}
-\caption{Readout scheme of PSD.}
-\label{fig:readout_scheme}
-\end{figure*} 
 
 As MIPs penetrating a long strip, the efficiency of light transmission is limited by total reflection angle, and that
 not more than 22.5\% fraction of scintillation light would reach the two ends of the strip. Taking into account that
@@ -206,6 +219,7 @@ and this value is approximately 0.9. The last parameter $\varepsilon $\textsubsc
 efficiency, which is the ratio of the effective photocathode area of the readout device and the cross section of the
 scintillator strip , and the calculated value is approximately 0.3.
 
+
 The chosen PMT R4443MOD2, composed of 10 stage dynodes, has a gain factor of 1×10\textsuperscript{6} at the supply high
 voltage of 1000V, which is obviously too high for the VA160 chip. Using the standard voltage divider and supply voltage
 from Hamamatsu, a simple calculation to obtain the multiplication factor of the two adjacent dynodes is 4. To match the
@@ -223,13 +237,6 @@ divider. It’s shown that the voltage distribution across the dynodes is the sa
 the input pulse, decoupling capacitors are connected to the last few stages using a parallel mode. To protect the high
 voltage power, two capacitors in series are used in the output of dynodes.
 
-\begin{figure*}
-\centering
- \includegraphics[width=140mm]{divider}
-\caption{Circuit diagram of the voltage divider.}
-\label{fig:divider}
-\end{figure*} 
-
 \section{Tests Result}
 \label{sec:result}
 
@@ -242,13 +249,6 @@ average per unit length. So a cosmic ray muons test was used to study the MIPs r
 of the test setup for a scintillator strip with cosmic ray muons is shown in Fig.~\ref{fig:cosmic_test}. Two small trigger, with the
 dimension of \ 1.0×1.0×1.0 cm\textsuperscript{3}, also made with scintillator are fixed on a movable support to
 investigate the performance of the readout system, and point-by-point measurement has been carried out. 
-
-\begin{figure*}
- \centering
- \includegraphics[width=140mm]{cosmic_test}
-\caption{The experimental setup for the cosmic ray test.}
-\label{fig:cosmic_test}
-\end{figure*} 
 
 Fig.~\ref{fig:mip} shows a typical MIPs energy spectrum read out from Dy8. The amplitude spectrum has an asymmetric form with a
 longer right-hand tail which is characteristic for thin absorbers. The most probable amplitude of the distribution
