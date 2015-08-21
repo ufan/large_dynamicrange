@@ -65,12 +65,19 @@
 %%
 \begin{abstract}
 
+\begin{comment}
 A Plastic Scintillator Detector (PSD), consisting of individual 82 organic plastic scintillator strips with 1 cm thick,
 located at the top of DAMPE (DArk Matter Particle Explore), has been developed. It mainly serves as anti-coincidence
-detector, also as a charge detector to measure cosmic ray nuclei up to charge $Z=20$. A large dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been deduced after consideration various contributions. Integrating of a PMT with double dynodes
-readout and an ASIC chip VA160, a large dynamic readout system has been presented. A cosmic ray muons and an
-accelerator beam test have been used to verify this design, respectively. The results show that the readout system
-could satisfy the required dynamic range. 
+detector, also as a charge detector to measure cosmic ray nuclei up to charge $Z=20$. A large dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been deduced after consideration various contributions. 
+Integrating of a PMT with double dynodes readout and an ASIC chip VA160, a large dynamic readout system has been presented. 
+A cosmic ray muons and an accelerator beam test have been used to verify this design, respectively. 
+The results show that the readout system could satisfy the required dynamic range. 
+\end{comment}
+
+A large dynamic range readout unit is developed for the Plastic Scintillator Detector(PSD) of DArk Matter Paricle Explorer(DAMPE).
+By extracting the signal form dynode5 and dynode8 of the photomultiplier tube, the unit can cover the wide signal amplitude range of PSD(from electron to Z=20).
+The design has been verified using cosmic ray muon and relativistic Ar beam at CERN.
+A dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been achieved.
 
 \end{abstract}
 
@@ -80,7 +87,7 @@ plastic scintillator
 \sep VA160
 \sep large dynamic range
 \sep double dynodes readout
-\sep cosmic ray
+
 %% PACS codes here,  in the form: \PACS code \sep codes
 
 \end{keyword}
@@ -92,13 +99,20 @@ plastic scintillator
 \section{Introduction}
 \label{sec:introduction}
 
-Many space experiments aim to fundamental physics research in the universe by observation of the high energy cosmic rays, such as the ATIC balloon-borne experiment~\cite{guzik_advanced_1999}, the satellite-based experiment of PAMELA~\cite{picozza2010instrument} and the AMS-02 experiment~\cite{aguilar2013first}.
-DAMPE~\cite{Chang_Jin_dampe} is a satellite-borne apparatus in the framework of Strategic Pioneer Research Program in Space Science of the Chinese Academy of Sciences (CAS). 
-The main scientific objective of DAMPE is to identify possible Dark Matter signatures by measuring high energy electrons, as well as in new discoveries in high energy gamma astronomy.
-It has also great potential to study how high energy cosmic rays origin and acceleration, and how they propagate. 
-The DAMPE detector is designed to cover a broad energy range. 
-It will provide high energy resolution spectra of electron, positron, proton, helium nuclei and other heavy ions in the energy band from 10GeV to 1PeV.
+DArk Matter Paricle Explorer(DAMPE)~\cite{Chang_Jin_dampe} is a satellite-borne particle detector aiming for in-direct dark matter search, high-energy gamma astronomy and primary cosmic ray study.
+It is designed to cover a wide energy range, from \SI{5}{GeV} to \SI{10}{TeV} for electrons and photons and from \SI{10}{GeV} to \SI{1}{PeV} for heavy ions, with unprecedented resolution(\SI{1.5}{\percent} at \SI{100}{\giga\electronvolt}).
+By extending the measurement to the \si{TeV} region, DAMPE will complement current experimental results~\cite{guzik_advanced_1999,picozza2010instrument,aguilar2013first} and shed more light on the new phenomena in this region. 
 
+The Plastic Scintillator Detector(PSD) is a key sub-detector of DAMPE, which sits at the top of the DAMPE satellite.
+It consists of two layers of plastic scintillator bars which are orthogonal to each other, and covers an effective detection area of $\SI{820}{mm}\times\SI{820}{mm}$.
+The bars are made of EJ-200~\cite{scintillator} with the dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, and readout at both ends by a Hamamatsu R4443 PMT~\cite{r4443}.
+By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ion discrimination up to Z=20.
+
+These functions impose a large dynamic range requirement for the readout unit of PSD, which in the upper limit needs to cover the large signal from Calcium while in the lower limit needs to record the small signal from minimum ionizing electrons. 
+The readout system needs to be designed carefully that it not only sustains the sufficient resolution for ion identification but also possesses large signal-to-noise ratio(SNR) for efficient e/$\gamma$ separation.
+Furthermore, the low power consumption limitation from the satellite adds an extra constraint in the design of the readout unit.
+
+\begin{comment}
 In the design of the satellite-borne apparatus DAMPE, a detector sensitive to nuclear charge Z that has a large area, sufficient light yield and charge resolution should be developed to measure relativistic cosmic-ray nuclei. 
 Organic plastic scintillators are ideally suited for this task. 
 A PSD, located at the top of DAMPE, is one of the key sub-detectors of the DAMPE and completely designed and built at the Institute of Modern Physics, CAS. 
@@ -112,9 +126,10 @@ To improve scintillation light collection efficiency and uniformity, each scinti
 
 In this paper, we report on the design of a large dynamic range readout system for the segmented scintillators at the PSD to challenge for measuring the energy spectra of the abundant nuclei with $Z\leq20$ and the identifying electrons and gamma rays. 
 A cosmic ray and a beam test have been done to verify whether this design could cover such a dynamic range of energy deposition measurements.
+\end{comment}
 
 %%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
-\section{Dynamic range requirement}
+\section{Dynamic Range Requirement}
 \label{sec:requirement}
 
 \begin{figure*}
@@ -138,8 +153,10 @@ A cosmic ray and a beam test have been done to verify whether this design could 
 \label{fig:cosmic_test}
 \end{figure*} 
 
-\section{Design}
-\label{sec:design}
+\subsection{Light output estimation}
+According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposit in PSD bars is approximately proportional to $Z^2$ for charged particles.
+
+\subsection{Miscellaneous contribution to the dynamic range}
 
 Many contributions would enlarge the required dynamic range. 
 The energy deposition in the organic plastic scintillator and its scintillation efficiency is one of the most important contribution to the required dynamic range. 
@@ -163,7 +180,18 @@ The fluctuation of energy loss by ionization of a charged particle in a thin sci
 Assumption the energy resolution of the fluctuation($\sigma$) is \SI{10}{\percent}, a maximum measurable energy deposition per scintillator strip up to 1350 MIPs is required as a 5$\sigma $ width is accepted, while a minimum value down to 0.25 MIPs is required at least. 
 Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 MIPs to 1400 MIPs could meet all requirements.
 
-It’s difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. 
+\section{Design of the Readout Unit}
+\label{sec:design}
+
+\subsection{Readout Strategy}
+
+\subsection{Estimation of the photon number}
+
+\subsection{Determination of the dynode5 and dynode8}
+
+\subsection{Base circuit design and implementation}
+
+It's difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. 
 There are several ways to achieve a high dynamic readout were reported~\cite{katayose2008development,kampert1994high,zhang2012high}. 
 To measure the energy deposition in the range with 4 orders of magnitude at each plastic scintillator strip of PSD, a readout system that uses a PMT with double dynode outputs coupled to FEE with an ASIC chip has been developed and performed. 
 A low power consumption ASIC chip known as VA160, which can be seen as a modified version of the VA32-HDR14.2, developed by IDEAS (Norway)~\cite{va160}, is used as the FEE for the PSD. 
@@ -207,6 +235,8 @@ To protect the high voltage power, two capacitors in series are used in the outp
 
 \section{Tests Result}
 \label{sec:result}
+
+\subsection{LED test}
 
 \subsection{Test with Cosmic Ray}
 \label{sec:cosmicray}
@@ -291,6 +321,10 @@ The input noise of the whole PSD system is approximately \SI{3}{\femto\coulomb},
 It’s also found that the required upper dynamic range 1400 MIPs could be covered by our design easily. 
 A relativistic argon beam test has been also used to verify the design. 
 Once again the result shows that the readout system could satisfy the large dynamic range requirements.
+
+\subsection{summary}
+
+\subsection{suggenstions for PMT selection}
 
 %%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgement}
