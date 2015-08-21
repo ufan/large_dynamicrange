@@ -43,7 +43,7 @@
 %%%%%%%%%%%%%% Front Matter %%%%%%%%%%%%%%%%%%
 \begin{frontmatter}
 
-\title{Design of a large dynamic readout unit for PSD at DAMPE}
+\title{Design of a large dynamic readout unit for the PSD detector of DAMPE project}
 
 \author[imp,lzu,ucas]{Yong Zhou}
 
@@ -99,34 +99,31 @@ plastic scintillator
 \section{Introduction}
 \label{sec:introduction}
 
-DArk Matter Paricle Explorer(DAMPE)~\cite{Chang_Jin_dampe} is a satellite-borne particle detector aiming for in-direct dark matter search, high-energy gamma astronomy and primary cosmic ray study.
+DArk Matter Paricle Explorer(DAMPE) is a satellite-borne particle detector aiming for in-direct dark matter search, high-energy gamma astronomy and primary cosmic ray study~\cite{Chang_Jin_dampe}.
 It is designed to cover a wide energy range, from \SI{5}{GeV} to \SI{10}{TeV} for electrons and photons and from \SI{10}{GeV} to \SI{1}{PeV} for heavy ions, with unprecedented resolution(\SI{1.5}{\percent} at \SI{100}{\giga\electronvolt}).
 By extending the measurement to the \si{TeV} region, DAMPE will complement current experimental results~\cite{guzik_advanced_1999,picozza2010instrument,aguilar2013first} and shed more light on the new phenomena in this region. 
 
-The Plastic Scintillator Detector(PSD) is a key sub-detector of DAMPE, which sits at the top of the DAMPE satellite.
+The Plastic Scintillator Detector(PSD), which sits at the top of the satellite, is a key sub-detector of DAMPE.
+By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ion identification up to Z=20.
 It consists of two layers of plastic scintillator bars which are orthogonal to each other, and covers an effective detection area of $\SI{820}{mm}\times\SI{820}{mm}$.
-The bars are made of EJ-200~\cite{scintillator} with the dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, and readout at both ends by a Hamamatsu R4443 PMT~\cite{r4443}.
-By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ion discrimination up to Z=20.
-
-These functions impose a large dynamic range requirement for the readout unit of PSD, which in the upper limit needs to cover the large signal from Calcium while in the lower limit needs to record the small signal from minimum ionizing electrons. 
-The readout system needs to be designed carefully that it not only sustains the sufficient resolution for ion identification but also possesses large signal-to-noise ratio(SNR) for efficient e/$\gamma$ separation.
-Furthermore, the low power consumption limitation from the satellite adds an extra constraint in the design of the readout unit.
+The bars are made of EJ-200~\cite{scintillator} with the dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, and coupled to a Hamamatsu R4443 PMT~\cite{r4443} at both ends using \SI{3}{mm}-thick silicon rubber(EJ-560~\cite{scintillator}).
 
 \begin{comment}
-In the design of the satellite-borne apparatus DAMPE, a detector sensitive to nuclear charge Z that has a large area, sufficient light yield and charge resolution should be developed to measure relativistic cosmic-ray nuclei. 
-Organic plastic scintillators are ideally suited for this task. 
-A PSD, located at the top of DAMPE, is one of the key sub-detectors of the DAMPE and completely designed and built at the Institute of Modern Physics, CAS. 
-Its main goals are to serves as an anti-coincidence detector to distinguish electrons and gamma rays, also as a charge detector to measure cosmic ray composition for elements from hydrogen (Z=1) to calcium (Z=20). 
-The PSD consists of individual 82 organic plastic scintillator strips and covers an overall active area of $\SI{82}{\centi\meter} \times \SI{82}{\centi\meter}$. 
-The scintillator strips, with a dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, are parallel to each other in one direction layer and aligned perpendicularly to the two layers. 
-To avoid the presence of any ineffective detection area, the strips at the same layer are staggered by \SI{8}{mm}. 
-A scintillator typed EJ-200~\cite{scintillator}, produced by Texas Eljen Corporation, has been adopted to the PSD. 
-Each module is connected to a PMT Hamamatsu R4443MOD2 which is a modified version of R4443~\cite{r4443}, via a silicon rubber EJ-560 at each end~\cite{scintillator}. 
-To improve scintillation light collection efficiency and uniformity, each scintillator strip is wrapped in Tyvek 1056D produced by Dupont~\cite{tyvek}, and then covered with for black Polyvinyl chloride tube to light tightness. 
-
-In this paper, we report on the design of a large dynamic range readout system for the segmented scintillators at the PSD to challenge for measuring the energy spectra of the abundant nuclei with $Z\leq20$ and the identifying electrons and gamma rays. 
-A cosmic ray and a beam test have been done to verify whether this design could cover such a dynamic range of energy deposition measurements.
+To fulfil the requirements and optimize performance, the readout unit of PSD needs a careful design, which is guided by the following rules:
+\begin{itemize}
+ \item Large dynamic range.To cover the signal amplitude from minimum ionizing electrons to relativistic calcium ions.
+ \item Large signla-to-noise ratio(SNR).For efficient charged particle detection.
+ \item Low power consumption. The whole PSD is limitted to 19W, 12W for the front end electronics and 7W for the detection units(high voltage distribution and PMT base circuit).
+\end{itemize}
 \end{comment}
+
+The readout unit of PSD needs to cover a wide range of signal amplitudes from minimum ionizing electrons to relativistic calcium ions, while in the same time keep sufficient resolution and large signal-to-noise ratio(SNR) for particle identification.   
+As a space expriment, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics and 7W for the detection units(high voltage distribution and PMT base circuit).
+This adds an extra constraint in the design of the readout unit.
+
+In this paper, a low power and large dynamic range readout unit for PSD is reported.
+The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}.
+Verification tests have been carried out using cosmic ray and relativistic heavy ion beam, the result of which proved our design strategy and will be discussed in Sec.\ref{sec:result}.
 
 %%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
 \section{Dynamic Range Requirement}
