@@ -161,13 +161,15 @@ As all singly charged minimum ionization particles have the same response in the
 \subsection{Miscellaneous contributions to the dynamic range}
 
 Actual dynamic range needed by PSD is expanded by several other contributions. 
-To make things clear, we define the mean light collected by the end PMT of PSD bars when a singly charged minimum ionizing particle penetrates through the center of the bar vertically as one MIP, and use it as the unit of dynamic range calculation.
+To make things clear, we define the mean light yield produced by a singly charged minimum ionizing particle penetrating through vertically in the middle of the bar as one MIP, and use it as the unit for the dynamic range calculation.
 
-The first contribution comes from the broad field of view DAMPE possesses, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
-This doubles the energy deposit in PSD, and thus expand the maximum light yield to \SI{540}{MIPs}.  
-Secondly, the long length of PSD's plastic scintillator bar makes the light attenuation non-negligible.
-The bars are wrapped by the Tyvek paper to improve transmission efficiency, and a preliminary test shows that the 
-At last, the statistical nature of ionizing process and the finite resolution of detector components 
+The first contribution comes from DAMPE's broad field of view, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
+This doubles the travel length and thus the energy deposit in PSD, and expand the maximum light yield to \SI{540}{MIPs}.  
+Secondly, the statistical nature of the ionizing process should be taken into account.
+Assuming a full coverage of the energy fluctuation is 5$\sigma$ and $\sigma$=\SI{10}{\percent}, the dynamic range of light output expands to \SI{675}{MIPs} in the upper limit and shrinks to \SI{0.75}{MIPs} in the lower limit. 
+Finally, the long length of the scintillator bar makes the light attenuation non-negligible.
+The bars are surface-polished and wrapped by the Tyvek paper to improve reflection efficiency, and preliminary tests show that the light reduction ratio between the middle position and the two ends can be well controlled above 0.5.
+Thus, the light collected by the end PMTs will vary between \SI{0.375}{MIPs} and \SI{1350}{MIPs}.
 
 To leave some redundancy for the adjustment, the final dynamic range required by the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
 
