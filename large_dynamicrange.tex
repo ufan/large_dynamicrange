@@ -148,19 +148,30 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 \label{fig:cosmic_test}
 \end{figure*} 
 
-\subsection{Light yield dynamic range of EJ-200}
+\subsection{Light yield in response to relativistic heavy ions}
 % According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for particles heavier than electron.
 The light yield of organic scintillators is a nonlinear function of the desposited energy $\Delta E$ due to the quenching effect.
 It can be described precisely by the Birks law~\cite{birks_theory_2013} in the low energy range, while for heavy ions in the relativistic energy region, the scintillation mechanism gets much more complicated and the Birks law fails to apply.
 Several expansions to Birks law have been proposed to describe the experimental results~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999}, nevertheless large discrepancy exists between them when extrapolating to the high-Z nuclides.
 
-Due to the theoretical difficulties metioned above, our estimation of the light yield of PSD bars will be based on the direct beam test result of AMS-02 TOF prototype~\cite{marrocchesi2011beam} which also use EJ-200 as the detection material and has the same thickness.
-According to ~\cite{marrocchesi2011beam}, the mean light output of calcium in EJ-200 is about 270 times larger than that of proton.
-As all singly charged minimum ionization particles(MIPs) have the same response in the plastic scintillator, this result indicates a light yield dynamic range of 1\si{MIPs}$\sim$270\si{MIPs} for PSD.
-In the following sections, we will use the mean light output of MIPs particle as the unit of the dynamic range calculation. 
+Due to the theoretical difficulties metioned above, the direct beam test result of AMS-02 TOF prototype~\cite{marrocchesi2011beam}, which also uses EJ-200 as the detection material and has the same thickness, will be referenced for our light yield estimation.
+According to ~\cite{marrocchesi2011beam}, the light output of calcium is about 270 times larger than that of proton.
+As all singly charged minimum ionization particles have the same response in the plastic scintillator, this result indicates a maximum of 270 times difference in the light yield for all the particle species covered by PSD.
 
 \subsection{Miscellaneous contributions to the dynamic range}
 
+Actual dynamic range needed by PSD is expanded by several other contributions. 
+To make things clear, we define the mean light collected by the end PMT of PSD bars when a singly charged minimum ionizing particle penetrates through the center of the bar vertically as one MIP, and use it as the unit of dynamic range calculation.
+
+The first contribution comes from the broad field of view DAMPE possesses, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
+This doubles the energy deposit in PSD, and thus expand the maximum light yield to \SI{540}{MIPs}.  
+Secondly, the long length of PSD's plastic scintillator bar makes the light attenuation non-negligible.
+The bars are wrapped by the Tyvek paper to improve transmission efficiency, and a preliminary test shows that the 
+At last, the statistical nature of ionizing process and the finite resolution of detector components 
+
+To leave some redundancy for the adjustment, the final dynamic range required by the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
+
+\begin{comment}
 \subsection{yuyuhong}
 Many contributions would enlarge the required dynamic range. 
 The energy deposition in the organic plastic scintillator and its scintillation efficiency is one of the most important contribution to the required dynamic range. 
@@ -183,6 +194,7 @@ Since two charge measurements are carried on with the PMTs placed in both sides 
 The fluctuation of energy loss by ionization of a charged particle in a thin scintillator is also taken into account.
 Assumption the energy resolution of the fluctuation($\sigma$) is \SI{10}{\percent}, a maximum measurable energy deposition per scintillator strip up to 1350 MIPs is required as a 5$\sigma $ width is accepted, while a minimum value down to 0.25 MIPs is required at least. 
 Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 MIPs to 1400 MIPs could meet all requirements.
+\end{comment}
 
 \section{Design of the readout unit}
 \label{sec:design}
