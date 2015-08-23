@@ -115,7 +115,7 @@ To fulfil the requirements and optimize performance, the readout unit of PSD nee
 \end{itemize}
 \end{comment}
 By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ions up to Z=20.
-These functions impose harsh demands for the readout system of PSD, which, together with the PMT, needs to cover a wide range of signal amplitudes from singly charged minimum ionizing particles(MIPs) to relativistic calcium ions, while in the same time keeping sufficient resolution and large signal-to-noise ratio(SNR) for effective particle identification.   
+These functions impose harsh demands for the readout system of PSD, which, together with the PMT, needs to cover a wide range of signal amplitudes from singly charged minimum ionizing particles to relativistic calcium ions, while in the same time keeping sufficient resolution and large signal-to-noise ratio(SNR) for effective particle identification.   
 As a space experiment, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics(FEE) and 7W for the high voltage distribution and PMT base circuit.
 This adds an extra constraint in the design of the readout unit.
 
@@ -124,7 +124,7 @@ Verification tests for the design have been carried out using cosmic ray and rel
 The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}, and the test results are discussed in Sec.\ref{sec:result}.
 
 %%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
-\section{Dynamic Range Requirement}
+\section{Dynamic range requirement}
 \label{sec:requirement}
 
 \begin{figure*}
@@ -148,18 +148,20 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 \label{fig:cosmic_test}
 \end{figure*} 
 
-\subsection{Light output of EJ-200}
-According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for charged particles heavier than electron.
-However, the light yield of organic scintillators is a nonlinear function of $\Delta E$ due to the quenching effect.
-This effect can be described by the semi-emprical Birks equation~\cite{birks_theory_2013} in the low energy region.
-In the relativistic region, the An expand Birks-Chou model,BTV model, EDSE model
+\subsection{Light yield dynamic range of EJ-200}
+% According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for particles heavier than electron.
+The light yield of organic scintillators is a nonlinear function of the desposited energy $\Delta E$ due to the quenching effect.
+It can be described precisely by the Birks law~\cite{birks_theory_2013} in the low energy range, while for heavy ions in the relativistic energy region, the scintillation mechanism gets much more complicated and the Birks law fails to apply.
+Several expansions to Birks law have been proposed to describe the experimental results~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999}, nevertheless large discrepancy exists between them when extrapolating to the high-Z nuclides.
 
-Despite the theoretical difficulty, various expriments have been carried out to investigate the response of scintillator.
-These experiments give us a direct reference for design.
-Our estimation is based on the beam test result of AMS, which uses the same kind of plastic scintillator.
+Due to the theoretical difficulties metioned above, our estimation of the light yield of PSD bars will be based on the direct beam test result of AMS-02 TOF prototype~\cite{marrocchesi2011beam} which also use EJ-200 as the detection material and has the same thickness.
+According to ~\cite{marrocchesi2011beam}, the mean light output of calcium in EJ-200 is about 270 times larger than that of proton.
+As all singly charged minimum ionization particles(MIPs) have the same response in the plastic scintillator, this result indicates a light yield dynamic range of 1\si{MIPs}$\sim$270\si{MIPs} for PSD.
+In the following sections, we will use the mean light output of MIPs particle as the unit of the dynamic range calculation. 
 
-\subsection{Miscellaneous contribution to the dynamic range}
+\subsection{Miscellaneous contributions to the dynamic range}
 
+\subsection{yuyuhong}
 Many contributions would enlarge the required dynamic range. 
 The energy deposition in the organic plastic scintillator and its scintillation efficiency is one of the most important contribution to the required dynamic range. 
 When minimum ionizing particles (MIPs) passing through 1 cm thick scintillator strip, they release a certain amount of energy. 
@@ -182,16 +184,16 @@ The fluctuation of energy loss by ionization of a charged particle in a thin sci
 Assumption the energy resolution of the fluctuation($\sigma$) is \SI{10}{\percent}, a maximum measurable energy deposition per scintillator strip up to 1350 MIPs is required as a 5$\sigma $ width is accepted, while a minimum value down to 0.25 MIPs is required at least. 
 Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 MIPs to 1400 MIPs could meet all requirements.
 
-\section{Design of the Readout Unit}
+\section{Design of the readout unit}
 \label{sec:design}
 
-\subsection{Readout Strategy}
+\subsection{Readout scheme}
 
 \subsection{Estimation of the photon number}
 
-\subsection{Determination of the dynode5 and dynode8}
+\subsection{Selection of the dynode stages}
 
-\subsection{Base circuit design and implementation}
+\subsection{PMT base circuit design and implementation}
 
 It's difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. 
 There are several ways to achieve a high dynamic readout were reported~\cite{katayose2008development,kampert1994high,zhang2012high}. 
@@ -235,12 +237,12 @@ It’s shown that the voltage distribution across the dynodes is the same.
 To improve the output linearity of the input pulse, decoupling capacitors are connected to the last few stages using a parallel mode. 
 To protect the high voltage power, two capacitors in series are used in the output of dynodes.
 
-\section{Tests Result}
+\section{Tests result}
 \label{sec:result}
 
-\subsection{LED test}
+\subsection{Test with LED}
 
-\subsection{Test with Cosmic Ray}
+\subsection{Test with cosmic ray}
 \label{sec:cosmicray}
 
 Cosmic ray muons are the most numerous energetic charged at sea level with a mean energy of about 4 GeV, and are typically MIPs. 
@@ -295,7 +297,7 @@ Apparently, the required upper dynamic range1400 MIPs could be covered by our de
 \label{fig:dy58}
 \end{figure} 
 
-\subsection{Test with Ion Beam}
+\subsection{Test with relativistic heavy ion beam}
 \label{sec:beam}
 
 A scintillator strip of PSD were tested at CERN SPS ion beam facility to verify our design to the required upper dynamic range. 
