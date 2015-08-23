@@ -43,7 +43,7 @@
 %%%%%%%%%%%%%% Front Matter %%%%%%%%%%%%%%%%%%
 \begin{frontmatter}
 
-\title{Design of a large dynamic readout unit for the PSD detector of DAMPE project}
+\title{Design and verification of a low power large dynamic readout unit for the PSD detector of DAMPE project}
 
 \author[imp,lzu,ucas]{Yong Zhou}
 
@@ -101,10 +101,8 @@ plastic scintillator
 
 DArk Matter Paricle Explorer(DAMPE) is a satellite-borne particle detector aiming for in-direct dark matter search, high-energy gamma astronomy and primary cosmic ray study~\cite{Chang_Jin_dampe}.
 It is designed to cover a wide energy range, from \SI{5}{GeV} to \SI{10}{TeV} for electrons and photons and from \SI{10}{GeV} to \SI{1}{PeV} for heavy ions, with unprecedented resolution(\SI{1.5}{\percent} at \SI{100}{\giga\electronvolt}).
-By extending the measurement to the \si{TeV} region, DAMPE will complement current experimental results~\cite{guzik_advanced_1999,picozza2010instrument,aguilar2013first} and shed more light on the new phenomena in this region. 
-
+% By extending the measurement to the \si{TeV} region, DAMPE will complement current experimental results~\cite{guzik_advanced_1999,picozza2010instrument,aguilar2013first} and shed more light on the new phenomena in this region. 
 The Plastic Scintillator Detector(PSD), which sits at the top of the satellite, is a key sub-detector of DAMPE.
-By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ion identification up to Z=20.
 It consists of two layers of plastic scintillator bars which are orthogonal to each other, and covers an effective detection area of $\SI{820}{mm}\times\SI{820}{mm}$.
 The bars are made of EJ-200~\cite{scintillator} with the dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, and coupled to a Hamamatsu R4443 PMT~\cite{r4443} at both ends using \SI{3}{mm}-thick silicon rubber(EJ-560~\cite{scintillator}).
 
@@ -116,14 +114,14 @@ To fulfil the requirements and optimize performance, the readout unit of PSD nee
  \item Low power consumption. The whole PSD is limitted to 19W, 12W for the front end electronics and 7W for the detection units(high voltage distribution and PMT base circuit).
 \end{itemize}
 \end{comment}
-
-The readout unit of PSD needs to cover a wide range of signal amplitudes from minimum ionizing electrons to relativistic calcium ions, while in the same time keep sufficient resolution and large signal-to-noise ratio(SNR) for particle identification.   
-As a space expriment, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics and 7W for the detection units(high voltage distribution and PMT base circuit).
+By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ions up to Z=20.
+These functions impose harsh demands for the readout system of PSD, which, together with the PMT, needs to cover a wide range of signal amplitudes from singly charged minimum ionizing particles(MIPs) to relativistic calcium ions, while in the same time keeping sufficient resolution and large signal-to-noise ratio(SNR) for effective particle identification.   
+As a space experiment, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics(FEE) and 7W for the high voltage distribution and PMT base circuit.
 This adds an extra constraint in the design of the readout unit.
 
 In this paper, a low power and large dynamic range readout unit for PSD is reported.
-The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}.
-Verification tests have been carried out using cosmic ray and relativistic heavy ion beam, the result of which proved our design strategy and will be discussed in Sec.\ref{sec:result}.
+Verification tests for the design have been carried out using cosmic ray and relativistic heavy ion beam, and the results are satisfactory.
+The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}, and the test results are discussed in Sec.\ref{sec:result}.
 
 %%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
 \section{Dynamic Range Requirement}
@@ -150,8 +148,15 @@ Verification tests have been carried out using cosmic ray and relativistic heavy
 \label{fig:cosmic_test}
 \end{figure*} 
 
-\subsection{Light output estimation}
-According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposit in PSD bars is approximately proportional to $Z^2$ for charged particles.
+\subsection{Light output of EJ-200}
+According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for charged particles heavier than electron.
+However, the light yield of organic scintillators is a nonlinear function of $\Delta E$ due to the quenching effect.
+This effect can be described by the semi-emprical Birks equation~\cite{birks_theory_2013} in the low energy region.
+In the relativistic region, the An expand Birks-Chou model,BTV model, EDSE model
+
+Despite the theoretical difficulty, various expriments have been carried out to investigate the response of scintillator.
+These experiments give us a direct reference for design.
+Our estimation is based on the beam test result of AMS, which uses the same kind of plastic scintillator.
 
 \subsection{Miscellaneous contribution to the dynamic range}
 
@@ -222,7 +227,7 @@ To match the dynamic range of VA160, the signal from the middle dynodes is extra
 The 8th dynode (Dy8), with a gain of $6\times 10^4$ from a rough calculation at given standard voltage, is the optimal selection to test the MIPs signals. 
 The positive charge outputs from Dy8 is \SI{450}{\femto\coulomb}, which is a little larger than our expectation \SI{300}{\femto\coulomb}, and the difference can be eliminated easily by fine adjustment of the supply high voltage of the PMTs. 
 To cover the required upper dynamic range, an earlier stage 5th dynode (Dy5) is used to the larger signals measurements, as the relative gain factor across three dynodes is 64 at standard supply voltage from a simple calculation. 
-Since the operating voltage is smaller than the standard voltage, the relative gain of Dy8/Dy5 is expected to 50±15 times. 
+Since the operating voltage is smaller than the standard voltage, the relative gain of Dy8/Dy5 is expected to $50\pm15$ times. 
 Assumption the relative gain between the two dynodes is 35 times, then the Dy5 will cover an energy range from 3.5 MIPs to 1400 MIPs. 
 Therefore, the total readout system could achieve the demanded wide range of 4 orders, and also provide a cross calibration between the two dynodes. 
 Figure 2 shows the circuit diagram of the PMT divider. 
@@ -321,7 +326,7 @@ Once again the result shows that the readout system could satisfy the large dyna
 
 \subsection{summary}
 
-\subsection{suggenstions for PMT selection}
+\subsection{production suggestions}
 
 %%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgement}
