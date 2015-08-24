@@ -202,15 +202,32 @@ Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 
 \label{sec:design}
 
 \subsection{Readout scheme}
+% A variety of designs can be referenced to cover the large dynamic range of the detector outputs~\cite{katayose2008development,kampert1994high,genolini_low_2003}.
+We have adopted the readout scheme based on multi-dynodes readout of R4443 singal.
+Small singal is extracted by high-gain dynode and large signal is extracted by low-gain dynode.
+To eliminate the cross-talk effect, singals from high gain dynodes and low gain dynodes will be processed by separate VA160 as shown in Fig.\ref{fig:readout_scheme}.
+The scheme is simple and robust, minimal components are used.
+As two VA160 channels are used, reserve the resolution.
 
-\subsection{Estimation of the photon number}
+VA160 is a highly integrated, low power consumption ASIC chip for charge measurement.
+low noise, high sensitivity
+It incorporates charge-sensitive amplifier, shaper
+FEE board based VA160 has been developed by the Institute of Modern 
 
 \subsection{Selection of the dynode stages}
+% \subsection{Photon number of one MIP}
 
-\subsection{PMT base circuit design and implementation}
 
+\subsection{Base circuit design and implementation}
+
+Based on the previous discussion, a fully resistive voltage divider is designed to extract current pulses from dynode5 and dynode8, as shown in Fig.\ref{fig:divider}.
+The decoupling capacitors $C_1\sim C_7$ are used to improve the linearity by compensating the charge required in the formation of large singals.
+The ramping resistors $R_10$ and $R_11$ and bypass capacitors $C_10$ and $C_13$ are here to better form the output waveform.
+Two coupling capacitors of the dynode readout circuit are serial chained together
+
+\begin{comment}
 It's difficult to read out a signal in such a wide range by using only one front-end electronics (FEE) circuit. 
-There are several ways to achieve a high dynamic readout were reported~\cite{katayose2008development,kampert1994high,zhang2012high}. 
+There are several ways to achieve a high dynamic readout were reported~\cite{katayose2008development,kampert1994high,genolini_low_2003}. 
 To measure the energy deposition in the range with 4 orders of magnitude at each plastic scintillator strip of PSD, a readout system that uses a PMT with double dynode outputs coupled to FEE with an ASIC chip has been developed and performed. 
 A low power consumption ASIC chip known as VA160, which can be seen as a modified version of the VA32-HDR14.2, developed by IDEAS (Norway)~\cite{va160}, is used as the FEE for the PSD. 
 This VA160 chip is optimized for positive input signals for the PMT dynodes output, and the analog to digital conversion is performed by a 14-bit ADC. 
@@ -250,6 +267,8 @@ Figure 2 shows the circuit diagram of the PMT divider.
 It’s shown that the voltage distribution across the dynodes is the same. 
 To improve the output linearity of the input pulse, decoupling capacitors are connected to the last few stages using a parallel mode. 
 To protect the high voltage power, two capacitors in series are used in the output of dynodes.
+\end{comment}
+
 
 \section{Tests result}
 \label{sec:result}
