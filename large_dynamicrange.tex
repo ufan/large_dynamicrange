@@ -136,16 +136,9 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 
 \begin{figure*}
 \centering
- \includegraphics[width=140mm]{divider}
+ \includegraphics[width=130mm]{divider}
 \caption{Circuit diagram of the voltage divider.}
 \label{fig:divider}
-\end{figure*} 
-
-\begin{figure*}[t]
- \centering
- \includegraphics[width=140mm]{cosmic_test}
-\caption{The experimental setup for the cosmic ray test.}
-\label{fig:cosmic_test}
 \end{figure*} 
 
 \subsection{Light yield in response to relativistic heavy ions}
@@ -201,6 +194,12 @@ Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 
 \section{Design of the readout unit}
 \label{sec:design}
 % Power consumption and robustness are the major concern in the design of a readout unit for space usage.
+\begin{figure*}[b]
+ \centering
+ \includegraphics[width=130mm]{cosmic_test}
+\caption{The experimental setup for the cosmic ray test.}
+\label{fig:cosmic_test}
+\end{figure*} 
 
 \subsection{Readout scheme}
 The ASIC chip VA160, which is developed by IDEAS~\cite{va160} and optimized for the DAMPE project, is adopted as the major signal processing circuit for the charge measurement of PSD.
@@ -211,17 +210,20 @@ It integrates 32 input channels into a single chip, and each channel consists of
 % Thus, current pulses from R4443 can be connected to VA160 directly, and the output will be digitized by a 14 bits ADC.
 
 A single VA160 channel is not sufficient to cover the full dynamic range required by PSD.
-We adopt the readout scheme of exacting signals from two dynodes of R4443 and then connecting them to separate VA160 channels.
+We adopt the readout scheme of extracting signals from two dynodes of R4443 and then connecting them to separate VA160 channels.
 Two measurement ranges can be achieved in this way, with the high gain dynode channel for small light output measurement and the low gain dynode channel for large light output measurement.
 While alternative methods exist~\cite{katayose2008development,kampert1994high,genolini_low_2003}, this readout scheme is preferred because the largest SNR can be achieved without adding extra electronic components, which in turn implies robustness and lower power consumption.
-To reduce the crosstalk effect, signals from the two dynodes shall be connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
+To reduce the crosstalk effect, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
+
+FEE board based on VA160 has been developed and fully tested~\cite{fee}. Outputs from VA160 are digitized by a 14 bits ADC.
+A linear range up to \SI{12}{\pico\coulomb} is guaranteed for each FEE channel, and the mean RMS electronic noise is about \SI{4}{\femto\coulomb} when connected to the PSD detector module. 
+The electronic noise level determines the lower limit of the dynamic range.
+Assuming the maximum noise level is \SI{50}{\percent} larger than the typical value and 5$\sigma$ is needed to separate signal from noise, this implies the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb}, i.e. 1MIPs$\geq$\SI{300}{\femto\coulomb}.
+Hence the maximum dynamic range covered by the high gain dynode channel is \SI{0.1}{MIPs}$\sim$\SI{40}{MIPs}, and the remaining range shall be covered by the low gain dynode channel.
+This constrains the gain ratio between the two dynodes to be $\geq$35.
 
 \subsection{Selection of the dynode stages}
 % \subsection{Photon number of one MIP}
-FEE board based on VA160 has been developed and fully tested~\cite{fee}.
-Outputs from VA160 are digitized by a 14 bits ADC, and an effective linear range up to \SI{12}{\pico\coulomb} can be achieved for a single channel.  
-When connected to the PSD detector module, the mean RMS of electronic noise is about \SI{4}{\femto\coulomb}. 
-Assuming the maximum noise level is \SI{50}{\percent} larger than the mean value, i.e.\SI{6}{\femto\coulomb} and 5$\sigma$ is needed to separate electronic noise and signal, the lower limit 
 
 
 \subsection{Base circuit design and implementation}
