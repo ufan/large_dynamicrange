@@ -164,11 +164,11 @@ Actual dynamic range needed by PSD is expanded by several other contributions.
 To make things clear, we define the mean light yield produced by a singly charged minimum ionizing particle penetrating through vertically in the middle of the bar as one MIP, and use it as the unit for the dynamic range calculation.
 
 The first contribution comes from DAMPE's broad field of view, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
-This doubles the travel length and thus the energy deposit in PSD, and expands the maximum light yield to \SI{540}{MIPs}.  
+This doubles the travel length and the energy deposit in the bar, and expands the maximum light yield to \SI{540}{MIPs}.  
 Secondly, the statistical nature of the ionizing process should be taken into account.
 Assuming a full coverage of the energy fluctuation is 5$\sigma$ and $\sigma$=\SI{10}{\percent}, the dynamic range of light output expands to \SI{675}{MIPs} in the upper limit and \SI{0.75}{MIPs} in the lower limit. 
 Finally, the long length of the scintillator bar makes the light attenuation non-negligible.
-The bars are surface-polished and wrapped by the Tyvek paper to improve reflection efficiency, and preliminary tests show that the light reduction ratio between the middle position and the two ends can be well controlled above 0.5.
+The bars are surface-polished and wrapped by the Tyvek paper~\cite{tyvek} to improve reflection efficiency, and preliminary tests show that the light reduction ratio between the middle position and the two ends can be well controlled above 0.5.
 Thus, the light collected by the end PMTs will vary between \SI{0.375}{MIPs} and \SI{1350}{MIPs}.
 
 To leave some redundancy for the adjustment, the final dynamic range required by the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
@@ -200,28 +200,34 @@ Therefore, a readout system for each PSD unit covering a dynamic range from 0.1 
 
 \section{Design of the readout unit}
 \label{sec:design}
+% Power consumption and robustness are the major concern in the design of a readout unit for space usage.
 
 \subsection{Readout scheme}
-% A variety of designs can be referenced to cover the large dynamic range of the detector outputs~\cite{katayose2008development,kampert1994high,genolini_low_2003}.
-We have adopted the readout scheme based on multi-dynodes readout of R4443 singal.
-Small singal is extracted by high-gain dynode and large signal is extracted by low-gain dynode.
-To eliminate the cross-talk effect, singals from high gain dynodes and low gain dynodes will be processed by separate VA160 as shown in Fig.\ref{fig:readout_scheme}.
-The scheme is simple and robust, minimal components are used.
-As two VA160 channels are used, reserve the resolution.
+The ASIC chip VA160, which is developed by IDEAS~\cite{va160} and optimized for the DAMPE project, is adopted as the major signal processing circuit for the charge measurement of PSD.
+% due to its low power consumption, high channel integration and successful applications in space usage~\cite{alcaraz_alpha_}.
+VA160 is a low power and radiation harden ASIC with a dynamic range from \SI{-5}{\pico\coulomb} to \SI{13}{\pico\coulomb}. 
+It integrates 32 input channels into a single chip, and each channel consists of a full chain of charge sensitive pre-amplifier, shaping amplifier and sample-and-hold circuit.
+% The high integration level allows compact design of .
+% Thus, current pulses from R4443 can be connected to VA160 directly, and the output will be digitized by a 14 bits ADC.
 
-VA160 is a highly integrated, low power consumption ASIC chip for charge measurement.
-low noise, high sensitivity
-It incorporates charge-sensitive amplifier, shaper
-FEE board based VA160 has been developed by the Institute of Modern 
+A single VA160 channel is not sufficient to cover the full dynamic range required by PSD.
+We adopt the readout scheme of exacting signals from two dynodes of R4443 and then connecting them to separate VA160 channels.
+Two measurement ranges can be achieved in this way, with the high gain dynode channel for small light output measurement and the low gain dynode channel for large light output measurement.
+While alternative methods exist~\cite{katayose2008development,kampert1994high,genolini_low_2003}, this readout scheme is preferred because the largest SNR can be achieved without adding extra electronic components, which in turn implies robustness and lower power consumption.
+To reduce the crosstalk effect, signals from the two dynodes shall be connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
 
 \subsection{Selection of the dynode stages}
 % \subsection{Photon number of one MIP}
+FEE board based on VA160 has been developed and fully tested~\cite{fee}.
+Outputs from VA160 are digitized by a 14 bits ADC, and an effective linear range up to \SI{12}{\pico\coulomb} can be achieved for a single channel.  
+When connected to the PSD detector module, the mean RMS of electronic noise is about \SI{4}{\femto\coulomb}. 
+Assuming the maximum noise level is \SI{50}{\percent} larger than the mean value, i.e.\SI{6}{\femto\coulomb} and 5$\sigma$ is needed to separate electronic noise and signal, the lower limit 
 
 
 \subsection{Base circuit design and implementation}
 
 Based on the previous discussion, a fully resistive voltage divider is designed to extract current pulses from dynode5 and dynode8, as shown in Fig.\ref{fig:divider}.
-The decoupling capacitors $C_1\sim C_7$ are used to improve the linearity by compensating the charge required in the formation of large singals.
+The decoupling capacitors $C_1\sim C_7$ are used to improve the linearity by compensating the charge required in the formation of large signals.
 The ramping resistors $R_10$ and $R_11$ and bypass capacitors $C_10$ and $C_13$ are here to better form the output waveform.
 Two coupling capacitors of the dynode readout circuit are serial chained together
 
