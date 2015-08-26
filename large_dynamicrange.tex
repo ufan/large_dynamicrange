@@ -240,16 +240,13 @@ where $\varepsilon_1$($\geq$0.5) is the light attenuation ratio caused by the tr
 $\varepsilon_2$($\approx$0.15) is the quantum efficiency of R4443 cathode, 
 $\varepsilon_3$($\approx$0.9) is the transmission coefficient of the silicon rubber which is the coupling material between PMT and scintillator bar,
 and $\varepsilon_4$($\approx$0.3) is the the geometry efficiency induced by the effective coupling area between R4443 input window and the bar's end surface.
-%  the typical value of which is 0.15,
-%  . which is induced by the the value of which can be controlled above 0.5.
-%  ,the typical value of which is 0.9, 
-% which is the ratio of the effective photocathode area of the readout device and the cross section of the scintillator strip, and the calculated value is approximately 0.3.
 The value of $\varepsilon_1$ is based on the measurement results~\cite{zhangyj_scintillator}, $\varepsilon_2$ and $\varepsilon_3$ are from the datasheets, and $\varepsilon_4$ is the calculation result of the effective coupling area divided by the end surface area. 
 
 R4443 is a 10-stage PMT with a gain of $1\times10^6$ at the typical supply voltage using standard voltage divider(i.e. same voltage drop between dynodes).
 A simple calculation shows that the multiplication factor between adjacent dynodes is about 4.
 Combining this result with the estimated PE numbers from Eq.~\ref{eq:pes}, the best-suited dynode composition appears to be dynode5+dynode8, which corresponds to a MIP response of \SI{450}{\femto\coulomb} and a gain ratio of 65.
-The figures are a little higher than the desired value, however the supply voltage can be adjusted to get the optimal result.
+The figures are both higher than the desired value, however the supply voltage can be adjusted to get the optimal result.
+% The composition of dynode4 and dynode7 can also get the desired value by increasing the supply voltage, however this also increases the risk of hv break down in space.
 
 \subsection{Base circuit design and implementation}
 Based on the previous discussion, a voltage divider is designed to extract current pulses from both dynode5 and dynode8, as shown in Fig.\ref{fig:divider}.
