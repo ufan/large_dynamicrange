@@ -228,7 +228,7 @@ To determine the appropriate dynode stages for readout, an estimation of the mea
 
 The mean energy deposit of the MIP particle in a \SI{10}{\milli\meter} plastic scintillator is about \SI{2.0}{\mega\electronvolt}~\cite{olive_review_2014}, and the scintillation efficiency of EJ-200 is \SI[per-mode=symbol]{e4}{e^-\per\mega\electronvolt}~\cite{scintillator}.
 Light output is distributed to both ends of the bar equally.
-However, only \SI{22.5}{\percent} of the generated photons are within the total reflection angle, and will undergo the transmission process to the end of the bar due to the refraction on the boundary.
+However, only \SI{22.5}{\percent} of the generated photons are within the total reflection angle and will undergo the transmission process to the end of the bar, due to the refraction on the boundary.
 The final number of photon electrons is calculated as follows:
 \begin{align}
  N_{PEs} &= \frac{1}{2} \times \SI[per-mode=symbol]{2}{\mega\electronvolt} \times \SI{e4}{\per\mega\electronvolt} \times 0.225
@@ -237,19 +237,19 @@ The final number of photon electrons is calculated as follows:
 \label{eq:pes}
 \end{align} 
 where $\varepsilon_1$($\geq$0.5) is the light attenuation ratio caused by the transmission loss from the middle position to the end of the bar,
-$\varepsilon_2$($\approx$0.15) is the quantum efficiency of R4443 cathode, 
-$\varepsilon_3$($\approx$0.9) is the transmission coefficient of the silicon rubber which is the coupling material between PMT and scintillator bar,
-and $\varepsilon_4$($\approx$0.3) is the the geometry efficiency induced by the effective coupling area between R4443 input window and the bar's end surface.
-The value of $\varepsilon_1$ is based on the measurement results~\cite{zhangyj_scintillator}, $\varepsilon_2$ and $\varepsilon_3$ are from the datasheets, and $\varepsilon_4$ is the calculation result of the effective coupling area divided by the end surface area. 
+$\varepsilon_2$($\approx$0.3) is the the geometry factor induced by the effective coupling area between R4443 input window and the bar's end surface,
+$\varepsilon_3$($\approx$0.9) is the transmission coefficient of the silicon rubber which is the coupling material between R4443 and the bar,
+and $\varepsilon_4$($\approx$0.15) is the quantum efficiency of R4443 cathode.
+The value of $\varepsilon_1$ is based on the measurement results~\cite{zhangyj_scintillator}, $\varepsilon_2$ is the calculation result of the effective coupling area divided by the end surface area, $\varepsilon_3$ and $\varepsilon_4$ are from the datasheets.
 
-R4443 is a 10-stage PMT with a gain of $1\times10^6$ at the typical supply voltage using standard voltage divider(i.e. same voltage drop between dynodes).
+R4443 is a 10-stage PMT with a gain of $1\times10^6$ at the typical supply voltage using standard voltage divider(i.e. equal voltage drop between dynodes).
 A simple calculation shows that the multiplication factor between adjacent dynodes is about 4.
-Combining this result with the estimated PE numbers from Eq.~\ref{eq:pes}, the best-suited dynode composition appears to be dynode5+dynode8, which corresponds to a MIP response of \SI{450}{\femto\coulomb} and a gain ratio of 65.
-The figures are both higher than the desired value, however the supply voltage can be adjusted to get the optimal result.
-% The composition of dynode4 and dynode7 can also get the desired value by increasing the supply voltage, however this also increases the risk of hv break down in space.
+Combining this result with the estimated PE numbers from Eq.~\ref{eq:pes}, dynode 5 and 8 are selected as the readout composition, which corresponds to a MIP response of \SI{450}{\femto\coulomb} and a gain ratio of 65.
+The figures are both higher than the desired value, thus the supply voltage need to be lowered to get the optimal result.
+The composition of dynode 5 and 7 with higher voltage supply is an alternative choice, it is dismissed because this increases power consumption, reduces the adjustment flexibility and may even exceed the allowed PMT operation voltage in the worst case.
 
-\subsection{Base circuit design and implementation}
-Based on the previous discussion, a voltage divider is designed to extract current pulses from both dynode5 and dynode8, as shown in Fig.\ref{fig:divider}.
+\subsection{Voltage divider circuit}
+Based on the previous discussion, a voltage divider circuit is designed to extract current pulses from both dynode5 and dynode8, as shown in Fig.\ref{fig:divider}.
 The decoupling capacitors $C_1\sim C_7$ are used to improve the linearity by compensating the charge required in the formation of large signals.
 The ramping resistors $R_10$ and $R_11$ and bypass capacitors $C_10$ and $C_13$ are here to better form the output waveform.
 Two coupling capacitors of the dynode readout circuit are serial chained together
