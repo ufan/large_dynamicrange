@@ -144,28 +144,28 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 
 \subsection{Light yield in response to relativistic heavy ions}
 % According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for particles heavier than electron.
-The light yield of organic scintillators is a nonlinear function of the desposited energy $\Delta E$ due to the quenching effect.
+The light yield of organic scintillator is a nonlinear function of the desposited energy $\Delta E$ due to the quenching effect.
 It can be described precisely by the Birks law~\cite{birks_theory_2013} in the low energy range, while for heavy ions in the relativistic region, the scintillation mechanism gets much more complicated and the Birks law fails to apply.
 Several modified models~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks law to the high energy region, nevertheless large discrepancy exists between them when extrapolating to the high-Z nuclides.
 
-Due to the theoretical difficulties metioned above, our estimation of the light yield is based on the direct beam test result of AMS-02 TOF prototype~\cite{marrocchesi2011beam}, which also uses EJ-200 as the detection material and has the same thickness.
-According to ~\cite{marrocchesi2011beam}, the light output of calcium is about 270 times larger than that of proton.
+Due to the theoretical difficulties metioned above, our estimation of the light yield is based on the direct beam test result of AMS-02 TOF prototype~\cite{bindi2005performance}, which also uses EJ-200 as the detection material and has the same thickness.
+According to ~\cite{bindi2005performance}, the light output of calcium is about 270 times larger than that of proton.
 As all singly charged minimum ionization particles have approximately the same response in the plastic scintillator, this result indicates a maximum of 270 times difference in the light yield for all the particle species covered by PSD.
 
 \subsection{Miscellaneous contributions to the dynamic range}
 
 Actual dynamic range needed by PSD is expanded by several other contributions. 
-To make things clear, we define the mean light yield produced by a singly charged minimum ionizing particle penetrating through vertically in the middle of the bar as one MIP, and use it as the unit for the dynamic range calculation.
+To make things clear, we define the mean light yield produced by a singly charged minimum ionizing particle penetrating vertically through the middle of the bar as one MIP, and use it as the unit for the dynamic range calculation.
 
 The first contribution comes from DAMPE's broad field of view, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
 This doubles the travel length and the energy deposit in the bar, and expands the maximum light yield to \SI{540}{MIPs}.  
 Secondly, the statistical nature of the ionizing process should be taken into account.
-Assuming a full coverage of the energy fluctuation is 5$\sigma$ and $\sigma$=\SI{10}{\percent}, the dynamic range of light output expands to \SI{675}{MIPs} in the upper limit and \SI{0.75}{MIPs} in the lower limit. 
+Assuming a full coverage of the energy fluctuation is 5$\sigma$ and $\sigma$=\SI{10}{\percent} for the worst case, the dynamic range of light output expands to \SI{675}{MIPs} in the upper limit and \SI{0.75}{MIPs} in the lower limit. 
 Finally, the long length of the scintillator bar makes the light attenuation non-negligible.
 The bars are surface-polished and wrapped by the Tyvek paper~\cite{tyvek} to improve reflection efficiency, and preliminary tests show that the light reduction ratio between the middle position and the two ends can be well controlled above 0.5.
 Thus, the light collected by the end PMTs will vary between \SI{0.375}{MIPs} and \SI{1350}{MIPs}.
 
-To leave some redundancy for the adjustment, the final dynamic range required by the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
+To leave some redundancy for the adjustment, the final dynamic range demand for the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
 
 \section{Design of the readout unit}
 \label{sec:design}
@@ -219,24 +219,40 @@ The value of $\varepsilon_1$ is based on the measurement results~\cite{zhangyj_s
 
 R4443 is a 10-stage PMT with a gain of $1\times10^6$ at the typical supply voltage using standard voltage divider(i.e. equal voltage drop between dynodes).
 A simple calculation shows that the multiplication factor between adjacent dynodes is about 4.
-Combining this result with the estimated PE numbers from Eq.~\ref{eq:pes}, dynode 5 and 8 are selected as the readout composition, which corresponds to a MIP response of \SI{450}{\femto\coulomb} and a gain ratio of 65.
+Combining this result with the estimated PE numbers from Eq.~\ref{eq:pes}, dynode 5 and 8 are selected as the readout composition, which corresponds to a typical MIP response of \SI{450}{\femto\coulomb} and a gain ratio of 65.
 The figures are both higher than the desired value, thus the supply voltage need to be lowered to get the optimal result.
 The composition of dynode 5 and 7 with higher voltage supply is an alternative choice, it is dismissed because this increases power consumption, reduces the adjustment flexibility and may even exceed the allowed PMT operation voltage in the worst case.
 
 \subsection{Voltage divider circuit}
 A cathode grouding voltage divider circuit, which can extract current pulses from both dynode 5 and 8, is designed as shown in Fig.\ref{fig:divider}.
-The uniform voltage distribution ratio is adopted instead of the ``tapered'' one, because R4443 is a small size tube and the space charge effect at dynode 8 is not an issue at the PSD light intensity level.
+The uniform voltage distribution ratio is adopted instead of the tapered one, because R4443 is a small size tube and the space charge effect at dynode 8 is not an issue at the PSD light intensity level.
 To retain the voltage ratio between the latter dynodes and in turn improve linearity, the parallel decoupling capacitors C1$\sim$C7 are added to compensate the charge required in the formation of large signals.
 
 As positive high voltage is supplied, coupling capacitors are needed in the dynode readout branch circuits.
 Two serial-chained capacitors(C8/C9 and C11/C12) are used in each branch to provide robustness, in case that one of them breaks down and the other can still protect the following circuits.  
 The ramping resistors R10/R11 and bypass capacitors C10/C13 are added to better form the output pulse shape.
-Finally, signals from dynode 5 and 8 are connected to the FEE board using coaxial cables to reduce crosstalk effect between them.
+Finally, signals from dynode 5 and 8 are connected to the FEE board using coaxial cables to reduce the crosstalk effect between them.
 
 \section{Tests result}
 \label{sec:result}
+Based on the design described above, a prototype of the PSD detector module has been developed and a series of tests have been carried out to check the performance of the readout unit.
 
 \subsection{Test with LED}
+Before coupling to the plastic scintillator bar, the linearity between the dynode 5 and 8 of the readout unit is verified using a blue LED source.
+By varying the light intensity of the LED in a large range, the correlation between dynode 5 and 8 can be recorded as shown in Fig.~\ref{fig:linearity}.
+A perfect linearity is achieved until the saturation of dynode 8.
+Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.1}{\percent} in all the cases. 
+
+The gain ratio between dynode 8 and 5 has been extracted at each supplying voltage and the dependency is fitted quite well with the power law function.
+%The result from LED will be compared with the cosmic ray measurement result described in the next section.
+
+\begin{figure}
+\centering
+\includegraphics[width=90mm]{linearity}
+\caption{Linearity between dynode 5 and 8}
+\label{fig:linearity}
+\end{figure}
+
 
 \subsection{Test with cosmic ray}
 \label{sec:cosmicray}
@@ -295,14 +311,20 @@ Apparently, the required upper dynamic range1400 MIPs could be covered by our de
 
 \subsection{Test with relativistic heavy ion beam}
 \label{sec:beam}
+To verify the upper limit of the readout dynamic range, a heavy ion beam test is carried out at the H8 beam line of CERN SPS, April 2015.
+A primary $^{40}{Ar}$(Z=18) beam of \SI{40}{AGeV\per c} is extracted from SPS and impinging on the middle of PSD's plastic scintillator bar.
+During the beam test, the same supply voltage as determined from the cosmic ray test described in Sec.\ref{sec:cosmicray} is applied for direct comparison.
+  
+As expected, the signal recorded by dynode 8 of the readout unit has already saturated and only dynode 5 can be used for energy measurement.
+The ADC spectrum recorded by dynode 5 of one side of the bar is shown in Fig.\ref{fig:Ar}. 
+The long tail before the primary $^{40}Ar$ peak corresponds to lighter nuclei which are the products of $^{40}Ar$ interacting in other detectors in front of PSD detector module.
+Using the Gaussian distribution, the mean value of $^{40}Ar$ peak is determined to be 1921 ADC counts which corresponds to \SI{217}{MIPs}, and the resolution is about \SI{4.2}{\percent}.
+This result is quite consistent with the AMS-02 TOF's result of \SI{210}{MIPs}~\cite{bindi2005performance}, hence validates our previous estimation of light yield in Sec.\ref{sec:requirement}.
 
-A scintillator strip of PSD were tested at CERN SPS ion beam facility to verify our design to the required upper dynamic range. 
-A primary of $^{40}Ar$($Z=18$) was accelerated to \SI{40}{AGeV\per c}, and the charge of Argon crossing the scintillator strip was measured by looking at its energy loss. 
-The most probable value and the sigma of energy deposition from a relativistic Argon beam are about 217 MIPs and 4.2\% in the Fig.~\ref{fig:Ar}, respectively. 
-A linear extrapolation is used to obtain the energy deposition for the Calcium ($Z=20$), and the most probable energy deposition for PSD scintillator strip is 268 MIPs from a calculation. 
-Since the quenching effect existing, the actual energy deposition is a little smaller than 268 MIPs, and this value is not out of our former estimation. 
-Assumption the sigma of energy deposition is 5\%, the upper limit of the amplitude of the charge pulse is 1340 MIPs as the incident Calcium particles cross the scintillator strip with the largest field view of DAMPE and a $5\sigma$ energy fluctuation is considered for the nearer readout PMT. 
-This value is within the limits of our design.
+An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca in the middle of the PSD bar shall be about \SI{268}{MIPs}, which corresponds to 2372 ADC counts in dynode 5.
+Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 will be about \SI{1206}{MIPs}(), which is well within our design limit of the dynamic range.
+The other side of the bar has similar results.
+%Thus, our design of the readout unit of PSD can fulfill the requirement 
 
 \begin{figure}
  \centering
