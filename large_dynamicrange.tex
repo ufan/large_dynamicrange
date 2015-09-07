@@ -61,9 +61,8 @@
 \author[lzu]{Bitao Hu}
 
 \address[imp]{Institute of Modern Physics, Chinese Academy of Sciences,  509 Nanchang Road,  Lanzhou,  730000,  P.R.China}
-\address[lzu]{School of Nuclear Science and Technology,  Lanzhou University,  222 South Tianshui Road,  Lanzhou,  730000,  P.R.China}
 \address[ucas]{Graduate University of the Chinese Academy of Sciences,  19A Yuquan Road,  Beijing,  100049,  P.R.China}
-
+\address[lzu]{School of Nuclear Science and Technology,  Lanzhou University,  222 South Tianshui Road,  Lanzhou,  730000,  P.R.China}
 %%
 \begin{abstract}
 
@@ -104,28 +103,22 @@ plastic scintillator
 DArk Matter Paricle Explorer(DAMPE) is a satellite-borne particle detector aiming for in-direct dark matter search, high-energy gamma astronomy and primary cosmic ray study~\cite{Chang_Jin_dampe}.
 It is designed to cover a wide energy range, from \SI{5}{GeV} to \SI{10}{TeV} for electrons and photons and from \SI{10}{GeV} to \SI{1}{PeV} for heavy ions, with unprecedented resolution(\SI{1.5}{\percent} at \SI{100}{\giga\electronvolt}).
 % By extending the measurement to the \si{TeV} region, DAMPE will complement current experimental results~\cite{guzik_advanced_1999,picozza2010instrument,aguilar2013first} and shed more light on the new phenomena in this region. 
+
 The Plastic Scintillator Detector(PSD), which sits at the top of the satellite, is a key sub-detector of DAMPE.
-It consists of two layers of plastic scintillator bars which are orthogonal to each other, and covers an effective detection area of $\SI{820}{mm}\times\SI{820}{mm}$.
+It consists of two layers of plastic scintillator bars which are orthogonal to each other and covers an effective detection area of $\SI{820}{mm}\times\SI{820}{mm}$.
 The bars are made of EJ-200~\cite{scintillator} with the dimension of $\SI{884}{mm} \times \SI{28}{\milli\meter} \times \SI{10}{mm}$, and coupled to a Hamamatsu R4443 PMT~\cite{r4443} at both ends.
 % using \SI{3}{mm}-thick silicon rubber(EJ-560~\cite{scintillator}).
-
-\begin{comment}
-To fulfil the requirements and optimize performance, the readout unit of PSD needs a careful design, which is guided by the following rules:
-\begin{itemize}
- \item Large dynamic range.To cover the signal amplitude from minimum ionizing electrons to relativistic calcium ions.
- \item Large signla-to-noise ratio(SNR).For efficient charged particle detection.
- \item Low power consumption. The whole PSD is limitted to 19W, 12W for the front end electronics and 7W for the detection units(high voltage distribution and PMT base circuit).
-\end{itemize}
-\end{comment}
 By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ions up to Z=20.
-These functions impose harsh demands for the readout system of PSD, which, together with the PMT, needs to cover a wide range of signal amplitudes from singly charged minimum ionizing particles to relativistic calcium ions, while in the same time keeping sufficient resolution and large signal-to-noise ratio(SNR) for effective particle identification.   
-As a space experiment, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics(FEE) and 7W for the high voltage distribution and PMT base circuit.
+
+These functions impose harsh demands for the readout system of PSD, which, together with the PMT, needs to cover a wide range of signal amplitudes from singly charged minimum ionizing particles to relativistic calcium ions, while in the same time keeping sufficient resolution and large signal-to-noise ratio(SNR) for effective particle identification. 
+On the other hand, the power consumption of PSD is restricted to be $\leq$19W as a whole, 12W for the front end electronics(FEE) and 7W for the high voltage distribution and PMT base circuit.
 This adds an extra constraint in the design of the readout unit.
 
+\begin{comment}
 In this paper, a low power and large dynamic range readout unit for PSD is reported.
 Verification tests for the design have been carried out using cosmic ray and relativistic heavy ion beam, and the results are satisfactory.
 The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}, and the test results are discussed in Sec.\ref{sec:result}.
-
+\end{comment}
 %%%%%%%%%%%%%%%% Main Text Body %%%%%%%%%%%%%%%%%%%%%%%
 \section{Dynamic range requirement}
 \label{sec:requirement}
@@ -133,7 +126,7 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 \begin{figure*}
 \centering
  \includegraphics[width=140mm]{readout_scheme}
-\caption{Readout scheme of PSD.}
+\caption{PSD readout scheme with two measurement ranges.}
 \label{fig:readout_scheme}
 \end{figure*} 
 
@@ -144,7 +137,7 @@ The detailed description of the design is presented in Sec.\ref{sec:requirement}
 \label{fig:divider}
 \end{figure*} 
 
-\subsection{Light yield in response to relativistic heavy ions}
+\subsection{Light yield of relativistic heavy ions}
 \label{sec:light_yield}
 % According to the Bethe-Bloch equation~\cite{olive_review_2014}, the energy deposited in PSD bars is approximately proportional to $Z^2$ for particles heavier than electron.
 The light yield of organic scintillator is a nonlinear function of the desposited energy $\Delta E$ due to the quenching effect.
@@ -153,11 +146,11 @@ Several modified models~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_
 
 Due to the theoretical difficulties metioned above, our estimation of the light yield is based on the direct beam test result of AMS-02 TOF prototype~\cite{bindi2005performance}, which also uses EJ-200 as the detection material and has the same thickness.
 According to ~\cite{bindi2005performance}, the light output of calcium is about 270 times larger than that of proton.
-As all singly charged minimum ionization particles have approximately the same response in the plastic scintillator, this result indicates a maximum of 270 times difference in the light yield for all the particle species covered by PSD.
+As all singly charged minimum ionization particles have approximately the same response in the plastic scintillator, this result indicates a maximum of 270 times difference in the light yield for all the particle species detected by PSD.
 
 \subsection{Miscellaneous contributions to the dynamic range}
 \label{sec:misc_contributions}
-Actual dynamic range needed by PSD readout system is expanded by several other contributions. 
+The actual dynamic range needed by PSD readout system is expanded by several other contributions. 
 To make things clear, we define the mean light yield produced by a singly charged minimum ionizing particle penetrating vertically through the middle of the bar as one MIP, and use it as the unit for the dynamic range calculation.
 
 The first contribution comes from DAMPE's broad field of view, which implies a maximum incidence angle of \SI{60}{\degree} for particles through PSD.
@@ -165,7 +158,7 @@ This doubles the travel length and the energy deposit in the bar, and expands th
 Secondly, the statistical nature of the ionizing process should be taken into account.
 Assuming a full coverage of the energy fluctuation is 5$\sigma$ and $\sigma$=\SI{10}{\percent}, the dynamic range of light output expands to \SI{675}{MIPs} in the upper limit and \SI{0.75}{MIPs} in the lower limit. 
 Finally, the long length of the scintillator bar makes the light attenuation non-negligible.
-The bars are surface-polished and wrapped by the Tyvek paper~\cite{tyvek} to improve reflection efficiency, and preliminary tests show that the light reduction ratio between the middle position and the two ends can be well controlled above 0.5.
+The bars are surface-polished and wrapped by the Tyvek paper~\cite{tyvek} to improve reflection efficiency, and preliminary tests show that the light attenuation ratio between the middle position and the two ends can be well controlled above 0.5.
 Thus, the light collected by the end PMTs will vary between \SI{0.375}{MIPs} and \SI{1350}{MIPs}.
 
 To leave some redundancy for the adjustment, the final dynamic range demand for the readout unit of PSD is determined to be \SI{0.1}{MIPs}$\sim$\SI{1400}{MIPs}.
@@ -191,15 +184,15 @@ It integrates 32 input channels into a single chip, and each channel consists of
 
 A single VA160 channel is not sufficient to cover the full dynamic range required by PSD.
 We adopt the readout scheme of extracting signals from two dynodes of R4443 and then connecting them to separate VA160 channels.
-Two measurement ranges can be achieved in this way, with the high gain dynode channel for small light output measurement and the low gain dynode channel for large light output measurement.
+Two measurement ranges can be achieved in this way, with the high-gain dynode channel for small light output measurement and the low-gain dynode channel for large light output measurement.
 While alternative methods exist~\cite{katayose2008development,kampert1994high,genolini_low_2003}, this readout scheme is preferred because the largest SNR can be achieved without adding extra active electronic components, which in turn implies low power consumption and robustness.
-To reduce the crosstalk effect, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
+To reduce the crosstalk between low-gain and high-gain channels, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
 
 FEE board based on VA160 has been developed and fully tested~\cite{fee}. Outputs from VA160 are digitized by a 14 bits ADC.
 A linear range up to \SI{12}{\pico\coulomb} is guaranteed for each FEE channel, and the mean RMS electronic noise is about \SI{4}{\femto\coulomb}. 
 The electronic noise level determines the lower limit of the dynamic range.
 Assuming the maximum noise level is \SI{50}{\percent} larger than the typical value and 5$\sigma$ is needed to separate signal from noise, this implies the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb}, i.e. 1MIPs$\geq$\SI{300}{\femto\coulomb}.
-Hence the maximum dynamic range covered by the high gain dynode channel is \SI{0.1}{MIPs}$\sim$\SI{40}{MIPs}, and the remaining range shall be covered by the low gain dynode channel.
+Hence the maximum dynamic range covered by the high-gain dynode channel is \SI{0.1}{MIPs}$\sim$\SI{40}{MIPs}, and the remaining range shall be covered by the low-gain dynode channel.
 This constrains the gain ratio between the two dynodes to be $\geq$35.
 
 \subsection{Selection of the dynode stages}
@@ -207,7 +200,7 @@ This constrains the gain ratio between the two dynodes to be $\geq$35.
 To determine the appropriate dynode stages for readout, an estimation of the mean number of photon electrons(PE) generated by one MIP in the middle of the bar is carried out.
 
 The mean energy deposit of the MIP particle in a \SI{10}{\milli\meter} plastic scintillator is about \SI{2.0}{\mega\electronvolt}~\cite{olive_review_2014}, and the scintillation efficiency of EJ-200 is \SI[per-mode=symbol]{e4}{photons\per\mega\electronvolt}~\cite{scintillator}.
-Light output is distributed to both ends of the bar equally.
+Light is distributed to both ends of the bar equally.
 However, only \SI{22.5}{\percent} of the generated photons are within the total reflection angle and will undergo the transmission process to the end of the bar, due to the refraction on the boundary surface.
 The final number of photon electrons is calculated as follows:
 \begin{align}
@@ -218,7 +211,7 @@ The final number of photon electrons is calculated as follows:
 \end{align} 
 where $\varepsilon_1$($\geq$0.5) is the light attenuation ratio caused by the transmission loss from the middle position to the end of the bar,
 $\varepsilon_2$($\approx$0.3) is the the geometry factor induced by the effective coupling area between R4443 input window and the bar's end surface,
-$\varepsilon_3$($\approx$0.9) is the transmission coefficient of the silicon rubber which is the coupling material between R4443 and the bar,
+$\varepsilon_3$($\approx$0.9) is the transmission coefficient of the silicon rubber which is the coupling material between PMT and the bar,
 and $\varepsilon_4$($\approx$0.15) is the quantum efficiency of R4443 cathode.
 %The value of $\varepsilon_1$ is based on the measurement results~\cite{zhangyj_scintillator}, $\varepsilon_2$ is the calculation result of the effective coupling area divided by the end surface area, $\varepsilon_3$ and $\varepsilon_4$ are from the datasheets.
 
@@ -240,17 +233,18 @@ The ramping resistors R10/R11 and bypass capacitors C10/C13 are added to better 
 
 Finally, signals from dynode 5 and 8 are connected to the FEE board using coaxial cables to reduce the crosstalk effect between them.
 
-\section{Tests result}
+\section{Verification tests}
 \label{sec:result}
 Based on the design described above, a prototype of the PSD detector module has been developed and a series of tests are carried out to check the performance of the readout unit.
 
 \subsection{Linearity test}
 \label{sec:led}
+The linearity between dynode 8 and 5 is a crucial parameter of the readout unit which may affect the resolution of the energy measurement.
+Before coupling to the plastic scintillator bar, the linearity of the readout unit is verified using a blue LED source.
 
-Before coupling to the plastic scintillator bar, the linearity between the dynode 5 and 8 of the readout unit is verified using a blue LED source.
 By varying the light intensity of the LED in a large range, the correlation between dynode 5 and 8 can be recorded.
 An example is shown in Fig.~\ref{fig:linearity}, where a perfect linearity is observed until the saturation of dynode 8.
-Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.1}{\percent} in all the cases.
+Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.5}{\percent} in all the cases.
 %The gain ratio between dynode 8 and 5 has been extracted at each supplying voltage and the dependency is fitted quite well with the power law function.
 %This result will be compared with the cosmic ray measurement result described in the next section.
 
@@ -261,10 +255,9 @@ Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the 
 \label{fig:linearity}
 \end{figure}
 
-
 \subsection{Test with cosmic ray}
 \label{sec:cosmicray}
-Cosmic muons at the sea level are perfect minimum ionizing particle source, hence can be used to study the MIPs response of PSD detector module in the laboratory.
+Cosmic muons at the sea level are perfect minimum ionizing particle source, hence are used to study the MIPs response of PSD detector module in the laboratory.
 The layout of the test setup is shown in Fig.~\ref{fig:cosmic_test}.
 Two small coincidence detectors(plastic scintillator blocks, $\SI{20}{mm} \times \SI{10}{\milli\meter} \times \SI{10}{mm}$), one above and the other below the PSD bar, are used to tag the vertically incident cosmic ray.
 Both detectors are fixed on a movable stage, and can move along the bar direction to investigate the response difference at various positions. 
@@ -312,21 +305,21 @@ The measured parameters for both ends are summarized in Table ~\ref{tab:summary}
 \begin{figure}
 	\centering
 	\includegraphics[width=90mm]{mip}
-	\caption{The pulse height distribution of cosmic muons from a low gain channel Dy8.}
+	\caption{The MIPs response recorded by dynode 8 in the middle of the PSD scintillator bar. The noise spectrum of this readout channel are shown in the same figure.}
 	\label{fig:mip}
 \end{figure} 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=90mm]{attenuation}
-	\caption{The charge pulse amplitude at different hit positions along the tested scintillator strip.}
+	\caption{The relative light output measured by the end PMTs at different hit positions along the PSD scintillator bar.}
 	\label{fig:attenuation}
 \end{figure} 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=90mm]{dy58}
-	\caption{The correlation between the signals in a low gain channel Dy8 and a high gain Dy5.}
+	\caption{The correlation between the signals recorded by dynode 8 and dynode 5 in cosmic ray test.}
 	\label{fig:dy58}
 \end{figure} 
 
@@ -339,47 +332,42 @@ Dynode 8 of the readout unit has already saturated in this measurement and only 
 The ADC spectrum recorded by dynode 5 of the right end of the bar is shown in Fig.\ref{fig:Ar}. 
 The long tail before the primary $^{40}Ar$ peak corresponds to light nuclei which are the products of $^{40}Ar$ interacting in other detectors in front of PSD detector module.
 Using the Gaussian distribution, the mean value of the peak is determined to be 1921 ADC counts and the relative resolution is \SI{4.2}{\percent}.
-Based on the gain ratio between dynode 8 and 5 from the cosmic test, this result corresponds to \SI{217}{MIPs}, and is consistent with the AMS-02 TOF's beam test result of \SI{210}{MIPs}~\cite{bindi2005performance}.
+Based on the gain ratio between dynode 8 and 5 from the cosmic test, this result corresponds to \SI{216}{MIPs}, and is consistent with the AMS-02 TOF's beam test result of \SI{210}{MIPs}~\cite{bindi2005performance}.
 %hence validates our previous estimation of light yield in Sec.\ref{sec:requirement}.
-An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca(Z=20) shall be about \SI{268}{MIPs}.
+An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca(Z=20) shall be about \SI{267}{MIPs}.
 %which corresponds to 2372 ADC counts in dynode 5.
-Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 is estimated to be \SI{1170}{MIPs}, which is well within the upper limit of the measured dynamic range from cosmic ray test.
+Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 is estimated to be \SI{1167}{MIPs}, which is well within the upper limit of the measured dynamic range from cosmic ray test.
 The left end has similar results, see Table ~\ref{tab:summary}.
 %Thus, our design of the readout unit of PSD can fulfill the requirement 
 
 \begin{figure}
  \centering
  \includegraphics[width=90mm]{Ar}
-\caption{The energy deposition distribution from a relativistic $^{40}Ar$ beam.}
+\caption{Pulse height spectrum of $^{40}Ar$ recorded by dynode 5.}
 \label{fig:Ar}
 \end{figure} 
 
-\section{Conclusion}
-\label{sec:conclustion}
+\section{Summary}
+\label{sec:summary}
+A low power, large dynamic range readout unit has been designed for the PSD detector of DAMPE project.
 
-A broad energy dynamic range of 0.1 MIPs$\sim$1400 MIPs required for each PSD has been deduced from a number of contributions, including energy deposition of nuclei up to charge $Z=20$, light attenuation, particle incidence angle and fluctuation of energy loss. 
+\begin{comment}
+A broad energy dynamic range of 0.1 MIPs$\sim$1400 MIPs required for each PSD has been deduced from a number of contributions, including energy deposition of nuclei up to charge Z=20, light attenuation, particle incidence angle and fluctuation of energy loss. 
 A readout system that used a PMT with double dynodes output coupled to FEE with a chip VA160 optimized for positive polarity signals has been developed and used to measure the energy deposition in a scintillator strip. 
 Cosmic ray muons were used to investigate the influence of scintillation light attenuation, MIPs peak and the equivalent noise of the whole detector system. 
 The input noise of the whole PSD system is approximately \SI{3}{\femto\coulomb}, and the most probable value of the signal-to-noise is greater than 10 for the lower signals with 0.1 MIPs energy deposition. 
 It’s also found that the required upper dynamic range 1400 MIPs could be covered by our design easily. 
 A relativistic argon beam test has been also used to verify the design. 
 Once again the result shows that the readout system could satisfy the large dynamic range requirements.
-
-\subsection{summary}
-power consumption
-dynamic range
-
-\subsection{production suggestions}
-test of pmt
-selection of scintillator bar
+\end{comment}
 
 %%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgement}
 \label{sec:acknowledgement}
 
 This work was supported by the Strategic Priority Research Program on Space Science of the Chinese Academy of Science,
-Grant No. XDA04040202- 3. The authors wish to thank all the people from DAMPE collaboration who helped make this work
-possible.
+Grant No. XDA04040202- 3.
+The authors wish to thank all the people from DAMPE collaboration who helped make this work possible.
 
 %%%%%%%%%%%%%%%%   Bibliography  %%%%%%%%%%%%%%%%%%%%%%%
 %% bibliography style
