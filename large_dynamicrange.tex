@@ -30,6 +30,8 @@
 \usepackage{fixltx2e}
 \usepackage{float}
 \usepackage{tabulary}
+\usepackage{multirow}
+\usepackage{booktabs}
 
 \usepackage{comment}
 
@@ -280,7 +282,7 @@ The relative light output at each position is shown in Fig.~\ref{fig:attenuation
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{(2L-x)/\lambda})
 \end{equation} 
 where L is the total length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
-Based on the fitting result, the light attenuation ratio at various positions can be calculated(see Tab.~\ref{tab:summary}) and they are all within the estimated limit described in Sec.~\ref{sec:requirement}.
+Based on the fitting result, the light attenuation ratio at various positions can be calculated(see Table ~\ref{tab:summary}) and they are all within the estimated limit described in Sec.~\ref{sec:requirement}.
 The SNR of the readout unit can be derived combining all the measurement results above, and it's about 10 for the right end of the PSD detector module.
 
 The gain ratio between dynode 8 and 5 can be extracted from the cosmic ray test by combining data from all tested positions.
@@ -288,18 +290,23 @@ The result from the right end of the bar is shown in Fig.~\ref{fig:dy58}, and th
 Thus the upper limit of this readout unit can be determined, and it's about  \SI{1462}{MIPs} for the right end.
 
 The same derivation can be applied to the left end of the PSD detector module and it has similar results.
-The measured parameters for both ends are summarized in Tab.~\ref{tab:summary}. 
+The measured parameters for both ends are summarized in Table ~\ref{tab:summary}. 
 
-\begin{table*}
+\begin{table*}\footnotesize
 	\centering
 	\caption{Summary of the measured parameters of both ends of the PSD detector module}
 	\label{tab:summary} 
-\begin{tabulary}{140mm}{|c|c|c|c|c|c|c|c|}
-	\hline  & MIPs(mpv) & MIPs($\sigma$) & Noise Level($\sigma$) & Light Attenuation(mid/min) & Dy8/Dy5 & $^{40}Ar$(mean) & $^{40}Ar$(sigma) \\ 
-	\hline Left End &  &  &  &  &  &  &  \\ 
-	\hline Right End &  &  &  &  &  &  &  \\ 
-	\hline 
-\end{tabulary}
+\begin{tabular}{cccccccccc}
+	\toprule
+%	\multirow{2}{*}{}
+	&\multicolumn{2}{l}{Electronics(dynode 8 )}&\multicolumn{2}{l}{MIPs(ADC counts)}&\multicolumn{1}{l}{}&\multicolumn{2}{l}{Light attenuation ratio}&\multicolumn{2}{l}{$^{40}Ar$(ADC counts)} \\
+	\cmidrule(r){2-3}\cmidrule(r){4-5}\cmidrule(r){7-8}\cmidrule(r){9-10}
+	& Calibration(\si{\per\femto\coulomb}) & RMS noise(ADC counts) & MPV & $\sigma$ & Dy8/Dy5 & FarEnd/Middle & NearEnd/Middle & Mean & $\sigma$ \\
+	\midrule 
+	Left End & 1.129 & 4.5 & 419.6 & 83.1 & 48.1 & 0.76 & 1.86 & 1918.6 & 86.8 \\ 
+	Right End & 1.082 & 5.8 & 395.8 & 65.6 & 44.6 & 0.74 & 1.94 & 1920.6 & 81.3 \\ 
+	\bottomrule
+\end{tabular}
 \end{table*}
 
 \begin{figure}
@@ -337,7 +344,7 @@ Based on the gain ratio between dynode 8 and 5 from the cosmic test, this result
 An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca(Z=20) shall be about \SI{268}{MIPs}.
 %which corresponds to 2372 ADC counts in dynode 5.
 Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 is estimated to be \SI{1170}{MIPs}, which is well within the upper limit of the measured dynamic range from cosmic ray test.
-The left end of the bar has similar results, see Tab.~\ref{tab:summary}.
+The left end of the bar has similar results, see Table ~\ref{tab:summary}.
 %Thus, our design of the readout unit of PSD can fulfill the requirement 
 
 \begin{figure}
