@@ -241,15 +241,15 @@ Finally, signals from dynode 5 and 8 are connected to the FEE board using coaxia
 
 \section{Tests result}
 \label{sec:result}
-Based on the design described above, a prototype of the PSD detector module has been developed and a series of tests have been carried out to check the performance of the readout unit.
+Based on the design described above, a prototype of the PSD detector module has been developed and a series of tests are carried out to check the performance of the readout unit.
 
-\subsection{Test with LED}
+\subsection{Linearity test}
 \label{sec:led}
-Before coupling to the plastic scintillator bar, the linearity between the dynode 5 and 8 of the readout unit is verified using a blue LED source.
-By varying the light intensity of the LED in a large range, the correlation between dynode 5 and 8 can be recorded as shown in Fig.~\ref{fig:linearity}.
-A perfect linearity is achieved until the saturation of dynode 8.
-Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.1}{\percent} in all the cases. 
 
+Before coupling to the plastic scintillator bar, the linearity between the dynode 5 and 8 of the readout unit is verified using a blue LED source.
+By varying the light intensity of the LED in a large range, the correlation between dynode 5 and 8 can be recorded.
+An example is shown in Fig.~\ref{fig:linearity}, where a perfect linearity is observed until the saturation of dynode 8.
+Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.1}{\percent} in all the cases.
 %The gain ratio between dynode 8 and 5 has been extracted at each supplying voltage and the dependency is fitted quite well with the power law function.
 %This result will be compared with the cosmic ray measurement result described in the next section.
 
@@ -265,13 +265,14 @@ Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the 
 \label{sec:cosmicray}
 Cosmic muons at the sea level are perfect minimum ionizing particle source, hence can be used to study the MIPs response of PSD detector module in the laboratory.
 The layout of the test setup is shown in Fig.~\ref{fig:cosmic_test}.
-Two coincidence detectors(small plastic scintillator blocks, $\SI{20}{mm} \times \SI{10}{\milli\meter} \times \SI{10}{mm}$), one above and the other below the PSD bar, are used to tag the vertically incident cosmic ray.
+Two small coincidence detectors(plastic scintillator blocks, $\SI{20}{mm} \times \SI{10}{\milli\meter} \times \SI{10}{mm}$), one above and the other below the PSD bar, are used to tag the vertically incident cosmic ray.
 Both detectors are fixed on a movable stage, and can move along the bar direction to investigate the response difference at various positions. 
 
-The supplying voltages of R4443 are first adjusted to get the designed MIPs response in the middle of the bar as described in Sec.~\ref{sec:dynodes_selection}.
-The result from one end of the PSD detector module is shown in Fig.\ref{fig:mip}, the spectrum follows the Landau distribution and the most probable value is 395.8 ADC counts corresponding to \SI{366}{\femto\coulomb} when converted to charge.
+The supplying voltages of R4443 are first adjusted to get the optimal MIPs response in the middle of the bar as described in Sec.~\ref{sec:dynodes_selection}.
+The result from the right end of the PSD detector module is shown in Fig.\ref{fig:mip}.
+The spectrum follows the Landau distribution and the most probable value is 396 ADC counts(\SI{366}{\femto\coulomb}).
 By fitting the lower half of the MIPs peak using Gaussian distribution, the relative resolution is found to be about \SI{16.6}{\percent}.
-The pedestal spectrum of this readout channel is also shown in the figure, and the RMS noise level is 5.8 ADC counts(\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout channel is about \SI{0.09}{MIPs}.
+The pedestal spectrum of this readout channel is also shown in the figure, and the RMS noise level is 5.8 ADC counts(\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout unit is about \SI{0.08}{MIPs}.
 
 The MIPs measurements are then carried out every \SI{10}{\centi\meter} along the bar.
 The relative light output at each position is shown in Fig.~\ref{fig:attenuation}, and the data can be described precisely by the following model~\cite{taiuti_measurement_1996}:
@@ -279,13 +280,15 @@ The relative light output at each position is shown in Fig.~\ref{fig:attenuation
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{(2L-x)/\lambda})
 \end{equation} 
 where L is the total length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
-Based on the fitting result, the light attenuation ratio at various positions can be calculated(see Tab.~\ref{tab:summary}) and they are all within the estimation limit described in Sec.~\ref{sec:requirement}.
-The SNR of the readout unit can also be derived combining all the measurement results above, and they are larger than 10 for both ends of the PSD detector module.
+Based on the fitting result, the light attenuation ratio at various positions can be calculated(see Tab.~\ref{tab:summary}) and they are all within the estimated limit described in Sec.~\ref{sec:requirement}.
+The SNR of the readout unit can be derived combining all the measurement results above, and it's about 10 for the right end of the PSD detector module.
 
 The gain ratio between dynode 8 and 5 can be extracted from the cosmic ray test by combining data from all tested positions.
-The result from one end of the bar is shown in Fig.~\ref{fig:dy58}, and the gain ratio is determined to be 44.6 by using a linear fit, which is consistent with the LED test result.
-Hence, the upper limit of this readout unit is estimated to be \SI{1462}{MIPs} and fulfills the requirements of \SI{1400}{MIPs}.
+The result from the right end of the bar is shown in Fig.~\ref{fig:dy58}, and the gain ratio is determined to be 44.6 by using a linear fit, which is consistent with the previous LED test.
+Thus the upper limit of this readout unit can be determined, and it's about  \SI{1462}{MIPs} for the right end.
 
+The same derivation can be applied to the left end of the PSD detector module and it has similar results.
+The measured parameters for both ends are summarized in Tab.~\ref{tab:summary}. 
 
 \begin{table*}
 	\centering
@@ -322,19 +325,19 @@ Hence, the upper limit of this readout unit is estimated to be \SI{1462}{MIPs} a
 
 \subsection{Test with relativistic heavy ion beam}
 \label{sec:beam}
-To verify the upper limit of the readout dynamic range, a heavy ion beam test is carried out at the H8 beam line of CERN SPS, April 2015.
-A primary $^{40}{Ar}$(Z=18) beam of \SI{40}{AGeV\per c} is extracted from SPS and impinging on the middle of PSD's plastic scintillator bar.
-During the beam test, the same supply voltage as determined from the cosmic ray test described in Sec.\ref{sec:cosmicray} is applied for direct comparison.
+To verify the cover range of the PSD detector module, a heavy ion beam test is carried out at the H8 beam line of CERN SPS, April 2015.
+The primary $^{40}{Ar}$(Z=18) beam of \SI{40}{AGeV\per c} is extracted from SPS and impinging on the middle of PSD's plastic scintillator bar, and the same supply voltage as the cosmic ray test is applied for direct comparison.
   
-As expected, the signal recorded by dynode 8 of the readout unit has already saturated and only dynode 5 can be used for energy measurement.
-The ADC spectrum recorded by dynode 5 of one side of the bar is shown in Fig.\ref{fig:Ar}. 
-The long tail before the primary $^{40}Ar$ peak corresponds to lighter nuclei which are the products of $^{40}Ar$ interacting in other detectors in front of PSD detector module.
-Using the Gaussian distribution, the mean value of $^{40}Ar$ peak is determined to be 1921 ADC counts which corresponds to \SI{217}{MIPs}, and the resolution is about \SI{4.2}{\percent}.
-This result is quite consistent with the AMS-02 TOF's result of \SI{210}{MIPs}~\cite{bindi2005performance}, hence validates our previous estimation of light yield in Sec.\ref{sec:requirement}.
-
-An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca in the middle of the PSD bar shall be about \SI{268}{MIPs}, which corresponds to 2372 ADC counts in dynode 5.
-Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 will be about \SI{1206}{MIPs}(), which is well within our design limit of the dynamic range.
-The other side of the bar has similar results.
+Dynode 8 of the readout unit has already saturated in this measurement and only dynode 5 can be used for energy measurement.
+The ADC spectrum recorded by dynode 5 of the right end of the bar is shown in Fig.\ref{fig:Ar}. 
+The long tail before the primary $^{40}Ar$ peak corresponds to light nuclei which are the products of $^{40}Ar$ interacting in other detectors in front of PSD detector module.
+Using the Gaussian distribution, the mean value of the peak is determined to be 1921 ADC counts and the relative resolution is \SI{4.2}{\percent}.
+Based on the gain ratio between dynode 8 and 5 from the cosmic test, this result corresponds to \SI{217}{MIPs}, and is consistent with the AMS-02 TOF's beam test result of \SI{210}{MIPs}~\cite{bindi2005performance}.
+%hence validates our previous estimation of light yield in Sec.\ref{sec:requirement}.
+An extrapolation based on the simple $Z^2$ dependency(i.e. without considering the quenching effect) gives that the response of Ca(Z=20) shall be about \SI{268}{MIPs}.
+%which corresponds to 2372 ADC counts in dynode 5.
+Assuming the resolution of Ca to be \SI{5}{\percent} and taking into account other effects described in Sec.\ref{sec:requirement}, the largest signal in dynode 5 is estimated to be \SI{1170}{MIPs}, which is well within the upper limit of the measured dynamic range from cosmic ray test.
+The left end of the bar has similar results, see Tab.~\ref{tab:summary}.
 %Thus, our design of the readout unit of PSD can fulfill the requirement 
 
 \begin{figure}
