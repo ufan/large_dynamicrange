@@ -45,7 +45,7 @@
 %%%%%%%%%%%%%% Front Matter %%%%%%%%%%%%%%%%%%
 \begin{frontmatter}
 
-\title{Design and verification of a low power large dynamic readout unit for the PSD detector of DAMPE project}
+\title{Design of a low power and large dynamic range readout unit for the PSD detector of DAMPE project}
 
 \author[imp,lzu,ucas]{Yong Zhou}
 
@@ -65,20 +65,11 @@
 \address[lzu]{School of Nuclear Science and Technology,  Lanzhou University,  222 South Tianshui Road,  Lanzhou,  730000,  P.R.China}
 %%
 \begin{abstract}
-
-\begin{comment}
-A Plastic Scintillator Detector (PSD), consisting of individual 82 organic plastic scintillator strips with 1 cm thick,
-located at the top of DAMPE (DArk Matter Particle Explore), has been developed. It mainly serves as anti-coincidence
-detector, also as a charge detector to measure cosmic ray nuclei up to charge $Z=20$. A large dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been deduced after consideration various contributions. 
-Integrating of a PMT with double dynodes readout and an ASIC chip VA160, a large dynamic readout system has been presented. 
-A cosmic ray muons and an accelerator beam test have been used to verify this design, respectively. 
-The results show that the readout system could satisfy the required dynamic range. 
-\end{comment}
-
-A large dynamic range readout unit is developed for the Plastic Scintillator Detector(PSD) of DArk Matter Paricle Explorer(DAMPE).
-By extracting the signal form dynode5 and dynode8 of the photomultiplier tube, the unit can cover the wide signal amplitude range of PSD(from electron to Z=20).
-The design has been verified using cosmic ray muon and relativistic Ar beam at CERN.
-A dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} has been achieved.
+	
+A large dynamic range readout unit is designed for the Plastic Scintillator Detector(PSD) of DArk Matter Paricle Explorer(DAMPE).
+Current pulses are extracted both from dynode 5 and dynode 8 of the readout PMT, and a low power ASIC chip VA160 is used for the charge measurement.
+A prototype detector module is developed based on this design and various tests are carried out to study the performance.
+The results show that the readout unit could easily cover the required dynamic range from \SI{0.1}{MIPs} to \SI{1400}{MIPs} with a signal to noise ratio larger than 10.
 
 \end{abstract}
 
@@ -237,21 +228,21 @@ Finally, signals from dynode 5 and 8 are connected to the FEE board using coaxia
 \label{sec:result}
 Based on the design described above, a prototype of the PSD detector module has been developed and a series of tests are carried out to check the performance of the readout unit.
 
-\subsection{Linearity test}
+\subsection{Test with LED}
 \label{sec:led}
-The linearity between dynode 8 and 5 is a crucial parameter of the readout unit which may affect the resolution of the energy measurement.
+The linearity between dynode 8 and 5 is a crucial parameter which may affect the resolution of the energy measurement of PSD.
 Before coupling to the plastic scintillator bar, the linearity of the readout unit is verified using a blue LED source.
 
-By varying the light intensity of the LED in a large range, the correlation between dynode 5 and 8 can be recorded.
-An example is shown in Fig.~\ref{fig:linearity}, where a perfect linearity is observed until the saturation of dynode 8.
-Several voltage values from \SIrange{700}{1000}{\volt} have been applied to the voltage divider, and the non-linearity is less than \SI{0.5}{\percent} in all the cases.
+By varying the light intensity of the LED in a large range until the saturation of dynode 8 readout channel, the correlation between dynode 5 and 8 can be recorded as shown in Fig.~\ref{fig:linearity}.
+A good linearity has been achieved in the full effective range of VA160.
+The same measurement is repeated at several different supplying voltages from \SIrange{700}{1000}{\volt}, and the non-linearity is less than \SI{0.5}{\percent} in all the cases.
 %The gain ratio between dynode 8 and 5 has been extracted at each supplying voltage and the dependency is fitted quite well with the power law function.
 %This result will be compared with the cosmic ray measurement result described in the next section.
 
 \begin{figure}
 \centering
 \includegraphics[width=90mm]{linearity}
-\caption{Linearity between dynode 5 and 8}
+\caption{Example of the linearity between dynode 5 and 8 measured in LED test.}
 \label{fig:linearity}
 \end{figure}
 
@@ -347,9 +338,12 @@ The left end has similar results, see Table ~\ref{tab:summary}.
 \label{fig:Ar}
 \end{figure} 
 
-\section{Summary}
-\label{sec:summary}
-A low power, large dynamic range readout unit has been designed for the PSD detector of DAMPE project.
+\section{Conclusion}
+\label{sec:conclusion}
+A low power and large dynamic range readout unit has been successfully designed for the PSD detector of DAMPE.
+The readout unit could easily cover the dynamic range from 0.1 MIPs to 1400 MIPs with SNR$\geq$10.
+However an adjustment of the PMT supplying voltage is needed to get the optimal performance and make full use of the measurement range.
+Due to the large individual differences of PMT, it is suggested that a careful measurement of R4443 tubes be performed to reject tubes with extreme characteristics before the massive production and installation.
 
 \begin{comment}
 A broad energy dynamic range of 0.1 MIPs$\sim$1400 MIPs required for each PSD has been deduced from a number of contributions, including energy deposition of nuclei up to charge Z=20, light attenuation, particle incidence angle and fluctuation of energy loss. 
