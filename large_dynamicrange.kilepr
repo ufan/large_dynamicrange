@@ -96,10 +96,10 @@ order=-1
 
 [item:large_dynamicrange.tex]
 archive=true
-column=16
+column=14
 encoding=UTF-8
 highlight=LaTeX
-line=299
+line=286
 mode=LaTeX
 open=true
 order=0
@@ -145,8 +145,8 @@ open=false
 order=-1
 
 [view-settings,view=0,item:large_dynamicrange.tex]
-CursorColumn=16
-CursorLine=299
+CursorColumn=14
+CursorLine=286
 JumpList=
 ViMarks=
 
