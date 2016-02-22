@@ -105,13 +105,13 @@ Each bar  is readout at both ends by the Hamamatsu R4443 photomultiplier tube (P
 The EJ-560~\cite{scintillator} optical pads are used as the  coupling material between the bar end and the PMT to assure the proper transmission of the scintillation light as well as to avoid the hard contact between them.
 
 By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for cosmic heavy ions up to Z=20.
-As the deposited energy of the charged particle in PSD is approximately proportional to $Z^2$, this implies a wide range of signal amplitudes from PMT and requires a large dynamic range design for the readout unit of PSD.
+As the deposited energy of the charged particle in PSD is approximately proportional to $Z^2$, this implies a wide range of output signal amplitudes and requires a large dynamic range design for the PSD readout unit.
 On the other hand, the available weight and power on the satellite is limited and this imposes a constraint in the selection of the electronic components of the readout unit.
 
 In this paper, the readout system of PSD with large dynamic range and  low power consumption is reported.
-An accurate estimation of the dynamic range needed by PSD is presented in Sec.~\ref{sec:requirement}.
-The readout scheme is determined based on this estimation, and the detailed design process and the composition of the readout unit is described in Sec.~\ref{sec:design}.
-Verification tests for the large dynamic design have also been carried out on a prototype detector module using cosmic ray and relativistic heavy ion beam.
+An estimation of the dynamic range needed by PSD is presented in Sec.~\ref{sec:requirement}.
+The readout scheme is determined based on this estimation, and the detailed design process and the composition of the readout unit are described in Sec.~\ref{sec:design}.
+Verification tests for the dynamic range have also been carried out on a prototype detector module using cosmic ray and relativistic heavy ion beam.
 The test results are discussed in Sec.~\ref{sec:result}.
 %The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}, and the test results are discussed in Sec.\ref{sec:result}.
 
@@ -120,10 +120,13 @@ The test results are discussed in Sec.~\ref{sec:result}.
 \section{Dynamic range requirement}
 \label{sec:requirement}
 
-The dynamic range of the detector maybe influenced by many different factors. To simplify the work, we define the mean light yield produced by a minimum ionizing particle (electron with $\gamma$ = 5 for example) penetrating vertically through the center of the bar as one MIP, and use it as the unit for the dynamic range estimation.
+The dynamic range of the PSD readout unit is affected by many different factors.
+To simplify the work, we define the mean light yield produced by a minimum ionizing particle (electron with $\beta\gamma$ = 5 for example) penetrating vertically through the center of the PSD bar as one MIP, and use it as the unit for the dynamic range estimation.
 
-The relationship between the response of the scintillator to a charged particle and its scintillation efficiency is one of the most important aspects, which will enlarge the dynamic range requirments. The light yield of organic scintillator is a nonlinear function of the specific energy loss $dE/dx$ due to the quenching effect.
-It can be described precisely by the Birks' law~\cite{birks_theory_2013} in the low energy range, while for heavy ions in the relativistic region, the scintillation mechanism is much more complicated and the Birks' law fails to apply directly. Several modified models~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks law to the high energy region, nevertheless large discrepancy exists between them when extrapolating to the high-Z nuclides.
+The relationship between the response of the scintillator to a charged particle and its scintillation efficiency is one of the most important aspects, which will enlarge the dynamic range requirments. 
+The light yield of organic scintillator is a nonlinear function of the energy loss $dE/dx$ due to the quenching effect, which can be described by the Birks' law~\cite{birks_theory_2013}.
+ For heavy ions in the relativistic region, the scintillation mechanism is much more complicated and the Birks' law fails to apply directly. 
+ Several modified models ~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks' law, nevertheless large discrepancy exists among them when extrapolating to the high-Z nuclides.
 
 Due to the theoretical difficulties mentioned above, our estimation of the light yield is based on the direct relativistic heavy ion beam test result of AMS-02 TOF prototype~\cite{bindi2005performance,bindi_calibration_2014}, which also uses EJ-200 as the detection material and has the same thickness.
 According to the parameters of~\cite{bindi2005performance}, the light output of calcium (Z=20) is about 270 times larger than that of proton (Z=1).
@@ -134,7 +137,8 @@ The second factor we considered is the broad field view of DAMPE, which asks for
 The third factor is the special shape of the scintillator bar since the light attenuation along the bar could not be negligible in the transmission process.
 To improve reflection efficiency, the bars are surface-polished and wrapped by the Tyvek paper~\cite{tyvek}. A preliminary test shows that a reduction ratio in the intensity of the scintillation light can be controlled to \SI{50}{\percent} as the incident particle hit the center position perpendicularly. Thus, the light collected by the PMTs at two ends will vary between \SI{0.375}{MIP} and \SI{1350}{MIPs}.
 
-Considered the noise from PMTs and electronics and to ensure the identification of even the smallest signal from noise clearly and leave some redundancy for the adjustment, the final dynamic range demand for the readout unit of PSD is determined to be \SI{0.1}{MIP}$\sim$\SI{1400}{MIPs}.
+%Considering the noise from PMTs and the electronics and 
+To ensure the clear separation of the smallest signal from the electronic noise as well as to leave some redundancy for the adjustment, the final dynamic range requirement for the readout unit of PSD is determined to be \SI{0.1}{MIP}$\sim$\SI{1400}{MIPs}.
 
 \section{Design of the readout unit}
 \label{sec:design}
