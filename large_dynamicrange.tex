@@ -120,17 +120,18 @@ The test results are discussed in Sec.~\ref{sec:result}.
 \section{Dynamic range requirement}
 \label{sec:requirement}
 
-The dynamic range of the PSD readout unit is affected by many different factors.
-To simplify the work, we define the mean light yield produced by a minimum ionizing particle (electron with $\beta\gamma$ = 5 for example) penetrating vertically through the center of the PSD bar as one MIP, and use it as the unit for the dynamic range estimation.
+The dynamic range requirement for the PSD readout unit is affected by many different factors.
+To simplify the work, we define the mean light yield produced by a singly charged minimum ionizing particle (e.g., electron with $\beta\gamma$ = 5) penetrating vertically through the center of the PSD bar as one MIP, and use it as the unit for the dynamic range estimation.
 
-The relationship between the response of the scintillator to a charged particle and its scintillation efficiency is one of the most important aspects, which will enlarge the dynamic range requirments. 
-The light yield of organic scintillator is a nonlinear function of the energy loss $dE/dx$ due to the quenching effect, which can be described by the Birks' law~\cite{birks_theory_2013}.
- For heavy ions in the relativistic region, the scintillation mechanism is much more complicated and the Birks' law fails to apply directly. 
+%The relationship between the response of the scintillator to a charged particle and its scintillation efficiency is one of the most important aspects, which will enlarge the dynamic range requirments. 
+The light yield of the plastic scintillator in response to different charged particles forms the basis for the dynamic range estimation.
+Due to the quenching effect, the scintillation efficiency of organic scintillator is not a constant, but a nonlinear function of the energy loss $dE/dx$ which can be described empirically by the Birks' law~\cite{birks_theory_2013}.
+ However, for heavy ions in the relativistic region, the scintillation mechanism is much more complicated and the Birks' law fails to apply directly. 
  Several modified models ~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks' law, nevertheless large discrepancy exists among them when extrapolating to the high-Z nuclides.
-
-Due to the theoretical difficulties mentioned above, our estimation of the light yield is based on the direct relativistic heavy ion beam test result of AMS-02 TOF prototype~\cite{bindi2005performance,bindi_calibration_2014}, which also uses EJ-200 as the detection material and has the same thickness.
-According to the parameters of~\cite{bindi2005performance}, the light output of calcium (Z=20) is about 270 times larger than that of proton (Z=1).
-As all minimum ionization particles with Z=1 have approximately the same specific energy loss in the organic material, it means that the light output for all the high energy particle species detected by PSD has a maximum of 270 times difference.
+Due to these theoretical difficulties, our estimation of the light yield is based on the relativistic heavy ion beam test result of AMS-02 TOF detector~\cite{bindi2005performance,bindi_calibration_2014}, which also uses EJ-200 with the same thickness as the detection material.
+According to the parameters from \cite{bindi2005performance}, the light output of calcium (Z=20) is about 270 times larger than that of proton (Z=1).
+As all singly charged minimum ionization particles have approximately the same energy loss in the same material, they have approximately the same light output.
+Thus, the light yield of the PSD bar in response to all the charged particle species covered by PSD ranges from \SIrange{1}{270}{MIPs}.
 
 The second factor we considered is the broad field view of DAMPE, which asks for a maximum incidence angle of \SI{60}{\degree}. It indicates that the traversing length and the energy deposit in the bar is double to the perpendicular incident particle, and this expands the maximum light yield to \SI{540}{MIPs}. Moreover, the statistical nature of the ionizing process should be also taken into account. Assuming the energy resolution of the fluctuation is \SI{10}{\percent} ($\sigma$), an upper limit of the measurable energy deposition per scintillator bar up to 675 MIPs is required as a 5$\sigma$ width is accepted. And the lower limit of measurement must be smaller than \SI{0.75}{MIP} on the other hand.
 
