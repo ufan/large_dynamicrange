@@ -123,7 +123,7 @@ The test results are discussed in Sec.~\ref{sec:result}.
 \label{sec:requirement}
 
 The dynamic range requirement for the PSD readout unit is affected by many different factors.
-To make things more clear, we define the mean light yield produced by a singly charged minimum ionizing particle (e.g., electron with $\beta\gamma$ = 5) penetrating vertically through the middle of the PSD bar as one MIP, and use it as the unit for the dynamic range estimation.
+To make things more clear, we define the mean light yield produced by a singly charged minimum ionizing particle (e.g., electron with $\beta\gamma$ = 5) penetrating vertically through the center of the PSD bar as one MIP, and use it as the unit for the dynamic range estimation.
 
 %The relationship between the response of the scintillator to a charged particle and its scintillation efficiency is one of the most important aspects, which will enlarge the dynamic range requirments. 
 The light yield of the plastic scintillator in response to different charged particles forms the basis for the dynamic range estimation.
@@ -144,18 +144,18 @@ This in turn doubles the energy loss as well as the light yield and extends the 
 %Moreover, the statistical nature of the ionizing and scintillation process should be also taken into account. 
 Both the process of energy loss in the plastic scintillator and the associated scintillation are intrinsically random, leading to the light yield fluctuation.
 The light yield fluctuation follows the Gaussian distribution.
-Assuming the standard deviation ($\sigma$) of the fluctuation is \SI{10}{\percent} and 5$\sigma$ is adopted for full coverage, the upper limit of the light yield extends to \SI{675}{MIPs} and the lower limit reduces to \SI{0.75}{MIPs}.
+Assuming the standard deviation ($\sigma$) of the fluctuation is \SI{10}{\percent} and 5$\sigma$ is adopted for the full coverage, the upper limit of the light yield extends to \SI{675}{MIPs} and the lower limit reduces to \SI{0.75}{MIPs}.
 %measurable energy deposition per scintillator bar up to 675 MIPs is required as a 5$\sigma$ width is accepted. And the lower limit of measurement must be smaller than \SI{0.75}{MIP} on the other hand.
 
 %The third factor is the special shape of the scintillator bar since the light attenuation along the bar could not be negligible in the transmission process.
 The scintillation photons produced at the hit position are transmitted to the bar end undergoing a series of reflection, absorption and refraction.
 To improve the reflection efficiency, the PSD bars are surface polished and wrapped by the Tyvek paper~\cite{tyvek}. 
-However, the length of the PSD bar is so long that the light attenuation during the transmission process can not be ignored, and this extends the dynamic range requirement tremendously.
+However, the length of the PSD bar is so long that the light attenuation during the transmission process can not be ignored, and this extends the dynamic range tremendously.
 A preliminary test shows that the light attenuation ratio from the middle point to the end of the bar can be well controlled above \SI{50}{\percent}. 
 Thus, the light intensity collected by the PMT at the bar end shall vary between \SI{0.375}{MIP} and \SI{1350}{MIPs}.
 
 %Considering the noise from PMTs and the electronics and 
-To ensure the clear separation of the smallest signal from the electronic noise as well as to leave some redundancy for the adjustment, the final dynamic range requirement for the readout unit of PSD is determined to be \SI{0.1}{MIP}$\sim$\SI{1400}{MIPs}.
+Finally, to ensure the clear separation of the smallest signal from the electronic noise as well as to leave some redundancy for the adjustment, the dynamic range requirement for the readout unit of PSD is determined to be \SI{0.1}{MIP}$\sim$\SI{1400}{MIPs}.
 
 \section{Design of the readout unit}
 \label{sec:design}
