@@ -170,15 +170,21 @@ Finally, to ensure the clear separation of the smallest signal from the electron
 \label{fig:readout_scheme}
 \end{figure*}
 
+An application specific integrated circuit VA160, developed by IDEAS Inc.~\cite{va160}, is adopted as the charge measurement circuit of PSD.
+VA160 is a low power and radiation harden chip designed specifically for the DAMPE project, and is optimized for positive input charge  with a dynamic range from \SI{-3}{\pico\coulomb} to \SI{13}{\pico\coulomb}.
+It has 32 input channels, and each channel has a full chain of charge sensitive pre-amplifier, CR-RC shaping amplifier and sample-hold circuit for independent charge measurement.
 
- An ASIC chip VA160, which is developed by IDEAS~\cite{va160} and optimized for the DAMPE project, is adopted as the major signal processing circuit for the charge measurement of PSD.
- The VA160, with a dynamic range from \SI{-3}{\pico\coulomb} to \SI{13}{\pico\coulomb}, is a low power consumption and radiation harden chip, and optimized for positive input signals from the PMT dynodes output.
+To cover the required dynamic range of about 4 orders of magnitude, it's found that a single VA160 channel is not sufficient. 
+Thus, the readout scheme which uses a PMT with double dynode outputs and connects the output signals to separate VA160 channels has been proposed and adopted for the readout system of PSD. 
+Two measurement ranges can be achieved in this way, with the high-gain dynode channel for small light output measurement and the low-gain dynode channel for large light output measurement. 
+To reduce the crosstalk between th low-gain and high-gain channels, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
 
-To measure the energy deposition in the range with 4 orders of magnitude at each scintillator bar, it's found that a single VA160 channel is not sufficient to cover the full dynamic range required by the PSD readout unit. A readout system that uses a PMT with double dynode outputs coupled to separate VA160 channels has been developed and performed by the PSD group. Two measurement ranges can be achieved in this way, with the high-gain dynode channel for small light output measurement and the low-gain dynode channel for large light output measurement. To reduce the crosstalk between low-gain and high-gain channels, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
-
-The FEE board of PSD which is based on VA160 has been developed and fully tested~\cite{fee}. The analog to digital conversion is performed by a 14-bit ADC. A linear range up to \SI{12}{\pico\coulomb} is guaranteed for each FEE channel. An input noise level of the whole PSD is expected to not greater than \SI{6}{\femto\coulomb}. This implies the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb} as a 5$\sigma$ separation is required, i.e. 1 MIP$\geq$\SI{300}{\femto\coulomb}.
- Thus a dynamic range from \SI{0.1}{MIPs}$\sim$\SI{40}{MIPs} can be achieved by the high-gain dynode channel, and the remaining range shall be covered by the low-gain dynode channel.
-This constrains the gain ratio between the two dynodes should be larger than $\geq$35.
+The front-end electronic (FEE) board based on VA160 has been developed and fully tested by the PSD group~\cite{fee}. 
+The analog to digital conversion is performed by a 14-bit ADC. 
+The test result~\cite{fee} shows that a linear range up to \SI{12}{\pico\coulomb} is guaranteed for each FEE channel and the input noise level ($\sigma$) of the whole PSD readout channel is expected to be smaller than \SI{6}{\femto\coulomb}. 
+This implies that the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb} as 5$\sigma$ separation is required, i.e. \SI{1}{MIP}$\geq$\SI{300}{\femto\coulomb}.
+Thus the dynamic range from \SI{0.1}{MIPs} to \SI{40}{MIPs} can be covered by the high-gain dynode channel, and the remaining range shall be covered by the low-gain dynode channel.
+This constrains the gain ratio between the two dynode stages to be $\geq$35.
 
 \subsection{Selection of the dynode stages}
 \label{sec:dynodes_selection}
