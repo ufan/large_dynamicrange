@@ -290,32 +290,31 @@ In this way, the response difference at various positions of the detector module
 
 The tagging detectors were first moved to the middle position of the PSD bar to study the MIP response at the center of the detector module.
 The signal of Dy5 was small in this test so that the data from the Dy8 channels were utilized for data analysis.
-Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the pedestal in the same figure.
-It can be seen the MIP peak is clearly separated from the pedestal.
-The MIP spectrum follows the Landau distribution and the most probable value (MPV) of this distribution equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}.
-The MPV ($\mu_{mpv}$) and the resolution ($\sigma_{mpv}$) of the distribution can be extracted by fitting the lower half of the MIP peak using the Gaussian distribution, as shown in Fig.~\ref{fig:mip}.
-The fitting results from both sides are summarized in Table~\ref{tab:mip}, together with the standard deviation of the pedestals ($\sigma_{noise}$).
-Thus, the lower limit of the dynamic range can be calculated as $5\sigma_{noise}/\mu_{mpv}$, which gives \SI{0.073}{MIPs} and \SI{0.054}{MIPs} for the right-side and left-side respectively.
+Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the noise spectrum in the same figure.
+It can be seen the MIP peak is clearly separated from the pedestal noise and the MIP spectrum follows the Landau distribution.
+The most probable value (MPV, $\mu_{mpv}$) of the distribution and the resolution ($\sigma_{mpv}$) can be extracted by fitting the lower half of the MIP peak using the Gaussian distribution, as shown in Fig.~\ref{fig:mip}.
+The fitting results from both sides are summarized in Table~\ref{tab:mip}, together with noise RMS ($\sigma_{noise}$) of the corresponding channels.
+%As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can be calculated as $5\sigma_{noise}/\mu_{mpv}$, which gives \SI{0.073}{MIPs} and \SI{0.054}{MIPs} for the right-side and left-side respectively.
+%By converting the ADC counts into charge and taking into account the fact that the effective linear range of the FEE channel is \SI{12}{\pico\coulomb}, the covering range of the Dy8 channel can also be obtained as $12000\cdot K_{Dy8}/\mu_{mpv}$, which gives \SI{32.8}{MIPs} and \SI{32.3}{MIPs} respectively.
+As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can then be calculated as $5\sigma_{noise}/\mu_{mpv}$ and the covering range of the Dy8 channel can be calculated as $12000K_{Dy8}/\mu_{mpv}$ where $12000$ comes from the fact that the effective linear range of the FEE channel is \SI{12}{\pico\coulomb}.
 %The value of the RMS noise is 5.8 ADC counts (\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout unit is about \SI{0.08}{MIPs} as a 5$\sigma$ separation is adopted to distinguish signal to noise.
 
-The MIP measurements were then carried out every \SI{10}{\centi\meter} along the bar to investigate the light attenuation effect in detail.
-The MPV values at each position was extracted 
-The relative light output at each position is shown in Fig.~\ref{fig:attenuation}.
-The light attenuation in the long bar can be described precisely by the following model~\cite{taiuti_measurement_1996}:
+The MIP measurements were then carried out every \SI{10}{\centi\meter} along the bar and the MPV value at each position was extracted as described above.
+The MPV variance along the bar is depicted in Fig.~\ref{fig:attenuation}, where the values are normalized to the middle position.
+As MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
 \begin{equation}
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
 \end{equation}
-where L is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
-Based on the fitting result, the light attenuation ratio at various positions can be calculated (see Table ~\ref{tab:summary}) and they are all within our expectation.
+where $L$ is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
+Based on the fitting results, the light output ratio between the near end and the center ($\eta_{max}$) and the ratio between the far end and the center ($\eta_{min}$) are calculated and listed in Table~\ref{tab:mip}.
+$\eta_{max}$ and $\eta_{min}$ can then be used to calculate the maximum and the minimum light output of the PSD bar.
 
-The relative gain between Dy8 and Dy5 can also be extracted from the cosmic ray test by merging the data from all tested positions.
+The relative gain between Dy8 and Dy5 was also extracted from the cosmic ray test by merging the data from all tested positions.
 Fig.~\ref{fig:dy58} shows the correlation between the ADC counts of Dy5 and Dy8 from the right side of the bar.
 It can be seen that a good linearity has been achieved between the two dynode stages.
-By fitting the data with a linear function, the relative gain between Dy8 and Dy5, $dy58$, can be extracted as the slope of the fitting function as shown in Fig.~\ref{fig:dy58}.
-The data from the left-side PMT can be processed in the same way, and the $dy58$s from both sides are listed in Table~\ref{tab:mip}.
+By fitting the data with a linear function, the relative gain between Dy8 and Dy5 ($dy58$) can be extracted, which is the slope of the fitting function as shown in Fig.~\ref{fig:dy58}.
+The data from the left-side PMT is processed in the same way, and the $dy58$s from both sides are listed in Table~\ref{tab:mip}.
 
-Thus the upper limit of this readout unit can be calculated, and it's about  \SI{1462}{MIPs} for the right side.
-The same analysis can be applied to the left side of the prototype module and it has similar results. The measured parameters for both sides are summarized in Table ~\ref{tab:summary}.
 
 %\begin{table*}\footnotesize
 %    \centering
