@@ -276,10 +276,11 @@ The results are listed in Table ~\ref{tab:calibration}, in which the numeric val
 
 \subsection{Results from cosmic ray tests}
 \label{sec:cosmicray}
+Cosmic ray muons at the sea level are singly charged minimum ionization particles, so they are widely used to study the MIP response of detectors in the laboratory.
+The layout of the test setup we used to study the MIP response of the prototype PSD detector module is shown in Fig.~\ref{fig:cosmic_test}.
+Two small plastic scintillator detectors ($\SI{10}{mm} \times \SI{10}{mm} \times \SI{10}{mm}$), S1 and S2, are used to tag the cosmic rays of vertical incidence, and they are fixed in a movable support which can move along the bar direction.
+In this way, the response difference at various positions of the detector module can be investigated.
 
-Cosmic ray muons are the most numerous energetic charged particles at the sea level, which are also minimum ionization particles. So they are broadly used to study the MIP response of detectors at the laboratory.
-We have used the cosmic ray muons to test the PSD prototype also and the layout of the test setup is shown in Fig.~\ref{fig:cosmic_test}.
-Two small plastic scintillator detectors ($\SI{10}{mm} \times \SI{10}{mm} \times \SI{10}{mm}$) are used to tag the vertically incident cosmic ray, and they are fixed in a movable support to investigate the response difference at various positions along the bar.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=130mm]{cosmic_test}
@@ -287,23 +288,33 @@ Two small plastic scintillator detectors ($\SI{10}{mm} \times \SI{10}{mm} \times
 	\label{fig:cosmic_test}
 \end{figure}
 
-The result from the right side of the prototype module is shown in Fig.~\ref{fig:mip}.
-The spectrum follows the Landau distribution and the most probable value (MPV) is 396 ADC counts (\SI{366}{\femto\coulomb}).
-By fitting the lower half of the MIPs peak using Gaussian distribution, the relative resolution is found to be about \SI{16.6}{\percent}.
-The pedestal spectrum of this readout channel is also shown in this figure, and the result of the linearity test from the FEE board is shown in Table ~\ref{tab:summary}. The value of the RMS noise is 5.8 ADC counts (\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout unit is about \SI{0.08}{MIPs} as a 5$\sigma$ separation is adopted to distinguish signal to noise.
+The tagging detectors were first moved to the middle position of the PSD bar to study the MIP response at the center of the detector module.
+The signal of Dy5 was small in this test so that the data from the Dy8 channels were utilized for data analysis.
+Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the pedestal in the same figure.
+It can be seen the MIP peak is clearly separated from the pedestal.
+The MIP spectrum follows the Landau distribution and the most probable value (MPV) of this distribution equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}.
+The MPV ($\mu_{mpv}$) and the resolution ($\sigma_{mpv}$) of the distribution can be extracted by fitting the lower half of the MIP peak using the Gaussian distribution, as shown in Fig.~\ref{fig:mip}.
+The fitting results from both sides are summarized in Table~\ref{tab:mip}, together with the standard deviation of the pedestals ($\sigma_{noise}$).
+Thus, the lower limit of the dynamic range can be calculated as $5\sigma_{noise}/\mu_{mpv}$, which gives \SI{0.073}{MIPs} and \SI{0.054}{MIPs} for the right-side and left-side respectively.
+%The value of the RMS noise is 5.8 ADC counts (\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout unit is about \SI{0.08}{MIPs} as a 5$\sigma$ separation is adopted to distinguish signal to noise.
 
-The MIPs measurements are then carried out every \SI{10}{\centi\meter} along the bar to investigate the influence of the light attenuation in detail.
+The MIP measurements were then carried out every \SI{10}{\centi\meter} along the bar to investigate the light attenuation effect in detail.
+The MPV values at each position was extracted 
 The relative light output at each position is shown in Fig.~\ref{fig:attenuation}.
-The data can be described precisely by the following model~\cite{taiuti_measurement_1996}:
+The light attenuation in the long bar can be described precisely by the following model~\cite{taiuti_measurement_1996}:
 \begin{equation}
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
 \end{equation}
 where L is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
 Based on the fitting result, the light attenuation ratio at various positions can be calculated (see Table ~\ref{tab:summary}) and they are all within our expectation.
 
-The gain ratio between Dy8 and DY5 can be extracted from the cosmic ray test by merging data from all tested positions.
-The result from the right side of the module is shown in Fig.~\ref{fig:dy58}, and a gain ratio of 44.6 can be derived by using a linear fit. Thus the upper limit of this readout unit can be calculated, and it's about  \SI{1462}{MIPs} for the right side.
+The relative gain between Dy8 and Dy5 can also be extracted from the cosmic ray test by merging the data from all tested positions.
+Fig.~\ref{fig:dy58} shows the correlation between the ADC counts of Dy5 and Dy8 from the right side of the bar.
+It can be seen that a good linearity has been achieved between the two dynode stages.
+By fitting the data with a linear function, the relative gain between Dy8 and Dy5, $dy58$, can be extracted as the slope of the fitting function as shown in Fig.~\ref{fig:dy58}.
+The data from the left-side PMT can be processed in the same way, and the $dy58$s from both sides are listed in Table~\ref{tab:mip}.
 
+Thus the upper limit of this readout unit can be calculated, and it's about  \SI{1462}{MIPs} for the right side.
 The same analysis can be applied to the left side of the prototype module and it has similar results. The measured parameters for both sides are summarized in Table ~\ref{tab:summary}.
 
 %\begin{table*}\footnotesize
@@ -372,7 +383,7 @@ Using the Gaussian distribution, the mean value ($\mu_{Ar}$) and the standard de
 The results from both sides are summarized in Table~\ref{tab:ion}, in which the RMS noise of the FEE channels are also listed.
 It can calculated that the relative resolution of the PSD detector module for Ar is about \SI{4.5}{\percent} and \SI{4.2}{\percent}.
  
- Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of $Ar$ in the bar can be calculated as ${\mu_{Ar}*dy58}/{\mu_{mpv}}$, which gives \SI{220}{MIPs} and \SI{216}{MIPs} for the left and right side of the bar respectively.
+ Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of $Ar$ in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{220}{MIPs} and \SI{216}{MIPs} for the left and right side of the bar respectively.
  A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{267}{MIPs} and \SI{272}{MIPs} respectively.
  The two values are both consistent with our expected value of \SI{270}{MIPs} from the AMS02-TOF beam test (see Sec.~\ref{sec:requirement}). 
  The light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent}.
