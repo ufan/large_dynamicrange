@@ -257,7 +257,7 @@ Moreover, the coaxial cables are used to transmit the signals to the FEE board t
 Based on the design described above, a prototype of the PSD detector module has been developed.
 Tests with cosmic ray and high energy ion beam were carried out to verify the performance of the readout unit.
 Before these tests, the related FEE channels were calibrated by the on-board charge calibration circuit~\cite{fee}.
-The results are listed in Table ~\ref{tab:calibration}, in which the numeric value is the equivalent ADC counts per \si{\femto\coulomb}'s input charge for each channel.
+The calibration parameters are listed in Table~\ref{tab:calibration}, and they will be used to convert ADC counts into charge in the analysis of the test results.
 
 \begin{table}\footnotesize
 	\centering
@@ -288,34 +288,74 @@ In this way, the response difference at various positions of the detector module
 	\label{fig:cosmic_test}
 \end{figure}
 
+\begin{table}\footnotesize
+	\centering
+	\caption{Summary of cosmic ray test results.}
+	\label{tab:mip}
+	\begin{tabulary}{85mm}{CCCCCCC}
+		\toprule
+		& $\sigma_{noise}$ & $\mu_{mpv}$ & $\sigma_{mpv}$ & $dy58$ & $\eta_{min}$ & $\eta_{max}$\\
+		\cmidrule(r){2-4}\cmidrule(r){5-7}
+		&\multicolumn{3}{c}{(unit: ADC counts)}&\multicolumn{3}{c}{(unit: 1)}\\
+		\midrule
+		Left  &  4.5 & 419.6 & 83.1 & 48.1 & 0.76 & 1.86 \\
+		Right  & 5.8 & 395.8 & 65.6 & 44.6 & 0.74 & 1.94 \\
+		\bottomrule
+	\end{tabulary}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=80mm]{mip}
+	\caption{The MIPs response recorded by dynode 8 in the middle of the PSD scintillator bar. The noise spectrum of this readout channel are shown in the same figure.}
+	\label{fig:mip}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=80mm]{attenuation}
+	\caption{The relative light output measured by the end PMTs at different hit positions along the PSD scintillator bar.}
+	\label{fig:attenuation}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=80mm]{dy58}
+	\caption{The correlation between the signals recorded by dynode 8 and dynode 5 in cosmic ray test.}
+	\label{fig:dy58}
+\end{figure}
+
 The tagging detectors were first moved to the middle position of the PSD bar to study the MIP response at the center of the detector module.
 The signal of Dy5 was small in this test so that the data from the Dy8 channels were utilized for data analysis.
-Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the noise spectrum in the same figure.
+Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the pedestal spectrum in the same figure.
 It can be seen the MIP peak is clearly separated from the pedestal noise and the MIP spectrum follows the Landau distribution.
 The most probable value (MPV, $\mu_{mpv}$) of the distribution and the resolution ($\sigma_{mpv}$) can be extracted by fitting the lower half of the MIP peak using the Gaussian distribution, as shown in Fig.~\ref{fig:mip}.
 The fitting results from both sides are summarized in Table~\ref{tab:mip}, together with noise RMS ($\sigma_{noise}$) of the corresponding channels.
 %As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can be calculated as $5\sigma_{noise}/\mu_{mpv}$, which gives \SI{0.073}{MIPs} and \SI{0.054}{MIPs} for the right-side and left-side respectively.
 %By converting the ADC counts into charge and taking into account the fact that the effective linear range of the FEE channel is \SI{12}{\pico\coulomb}, the covering range of the Dy8 channel can also be obtained as $12000\cdot K_{Dy8}/\mu_{mpv}$, which gives \SI{32.8}{MIPs} and \SI{32.3}{MIPs} respectively.
-As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can then be calculated as $5\sigma_{noise}/\mu_{mpv}$ and the covering range of the Dy8 channel can be calculated as $12000K_{Dy8}/\mu_{mpv}$ where $12000$ comes from the fact that the effective linear range of the FEE channel is \SI{12}{\pico\coulomb}.
+As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can then be calculated as $5\sigma_{noise}/\mu_{mpv}$ and the dynamic range of the Dy8 channel can be calculated as $12000K_{Dy8}/\mu_{mpv}$, where $12000$ comes from the fact that the effective linear range of the FEE channel is \SI{12}{\pico\coulomb}.
+Substituting actual values into the formulas, we get that the lower limits for the two sides are both smaller than \SI{0.1}{MIPs}, which is consistent with our design requirement. 
+And the dynamic range of the Dy8 channel is \SI{32}{MIPs} and \SI{33}{MIPs} for the left and right side respectively.
+
 %The value of the RMS noise is 5.8 ADC counts (\SI{5.4}{\femto\coulomb}), which implies the lower limit of the dynamic range for this readout unit is about \SI{0.08}{MIPs} as a 5$\sigma$ separation is adopted to distinguish signal to noise.
 
 The MIP measurements were then carried out every \SI{10}{\centi\meter} along the bar and the MPV value at each position was extracted as described above.
 The MPV variance along the bar is depicted in Fig.~\ref{fig:attenuation}, where the values are normalized to the middle position.
-As MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
+As the MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
 \begin{equation}
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
 \end{equation}
 where $L$ is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
-Based on the fitting results, the light output ratio between the near end and the center ($\eta_{max}$) and the ratio between the far end and the center ($\eta_{min}$) are calculated and listed in Table~\ref{tab:mip}.
-$\eta_{max}$ and $\eta_{min}$ can then be used to calculate the maximum and the minimum light output of the PSD bar.
+Based on the fitting results, the light output ratio between the near end and the center ($\eta_{max}$) and the ratio between the far end and the center ($\eta_{min}$) are calculated,  and listed in Table~\ref{tab:mip}.
+$\eta_{max}$ and $\eta_{min}$ can be used to calculate the maximum and the minimum light output of the PSD bar.
 
 The relative gain between Dy8 and Dy5 was also extracted from the cosmic ray test by merging the data from all tested positions.
-Fig.~\ref{fig:dy58} shows the correlation between the ADC counts of Dy5 and Dy8 from the right side of the bar.
+Fig.~\ref{fig:dy58} shows the correlation between the ADC counts of Dy5 and Dy8 from the right-side PMT.
 It can be seen that a good linearity has been achieved between the two dynode stages.
 By fitting the data with a linear function, the relative gain between Dy8 and Dy5 ($dy58$) can be extracted, which is the slope of the fitting function as shown in Fig.~\ref{fig:dy58}.
-The data from the left-side PMT is processed in the same way, and the $dy58$s from both sides are listed in Table~\ref{tab:mip}.
-
-
+The data from the left-side PMT is processed in the same way, and the $dy58$s from both sides are also listed in Table~\ref{tab:mip}.
+The upper limit of the readout dynamic range can then be deduced as $12000K_{Dy5} \cdot dy58/\mu_{mpv}$, which gives \SI{1543}{MIPs} and \SI{1527}{MIPs} for the left-side and right-side respectively.
+They are both larger than \SI{1400}{MIPs} and satisfy our design requirement.
 %\begin{table*}\footnotesize
 %    \centering
 %    \caption{Summary of the measured parameters of both ends of the PSD detector module}
@@ -333,61 +373,11 @@ The data from the left-side PMT is processed in the same way, and the $dy58$s fr
 %\end{tabulary}
 %\end{table*}
 
-\begin{table}\footnotesize
-	\centering
-	\caption{Summary of cosmic ray test results.}
-	\label{tab:mip}
-	\begin{tabulary}{85mm}{CCCCCCC}
-		\toprule
-		& $\sigma_{noise}$ & $\mu_{mpv}$ & $\sigma_{mpv}$ & $dy58$ & $\eta_{min}$ & $\eta_{max}$\\
-	    \cmidrule(r){2-4}\cmidrule(r){5-7}
-		&\multicolumn{3}{c}{(unit: ADC counts)}&\multicolumn{3}{c}{(unit: 1)}\\
-		\midrule
-		Left  &  4.5 & 419.6 & 83.1 & 48.1 & 0.76 & 1.86 \\
-		Right  & 5.8 & 395.8 & 65.6 & 44.6 & 0.74 & 1.94 \\
-		\bottomrule
-	\end{tabulary}
-\end{table}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=90mm]{mip}
-    \caption{The MIPs response recorded by dynode 8 in the middle of the PSD scintillator bar. The noise spectrum of this readout channel are shown in the same figure.}
-    \label{fig:mip}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=90mm]{attenuation}
-    \caption{The relative light output measured by the end PMTs at different hit positions along the PSD scintillator bar.}
-    \label{fig:attenuation}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=90mm]{dy58}
-    \caption{The correlation between the signals recorded by dynode 8 and dynode 5 in cosmic ray test.}
-    \label{fig:dy58}
-\end{figure}
 
 \subsection{Results from relativistic heavy ion beam test}
 \label{sec:beam}
 The prototype PSD detector module was also tested using a relativistic ion beam at the H8 beam line of CERN-SPS to verify its covering range.
 The primary $^{40}{Ar}$ beam of \SI{40}{AGeV\per c} was extracted from SPS and impinging on the center of the plastic scintillator bar of the module, and the same supply voltages of the PMTs as in the cosmic ray test were applied for direct comparison.
-
-The Dy8 channels were found to be saturated in this test and only the data from Dy5 channels could be used for analysis.
-Fig.~\ref{fig:Ar} shows the raw ADC spectrum of the Dy5 channel from one side (right-side) of the PSD detector module.
-The long tail on the left of the primary $^{40}Ar$ peak corresponds to the light nuclei which are the products of $^{40}Ar$ interacting with materials in front of the PSD detector module.
-Using the Gaussian distribution, the mean value ($\mu_{Ar}$) and the standard deviation ($\sigma_{Ar}$) of the primary peak could be obtained as shown in Fig.~\ref{fig:Ar}.
-The results from both sides are summarized in Table~\ref{tab:ion}, in which the RMS noise of the FEE channels are also listed.
-It can calculated that the relative resolution of the PSD detector module for Ar is about \SI{4.5}{\percent} and \SI{4.2}{\percent}.
- 
- Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of $Ar$ in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{220}{MIPs} and \SI{216}{MIPs} for the left and right side of the bar respectively.
- A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{267}{MIPs} and \SI{272}{MIPs} respectively.
- The two values are both consistent with our expected value of \SI{270}{MIPs} from the AMS02-TOF beam test (see Sec.~\ref{sec:requirement}). 
- The light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent}.
- And taking into account other effects such as traverse length and light attenuation described in Sec.\ref{sec:requirement}, the largest signal of Ca in Dy5 is estimated to be \SI{1167}{MIPs}.
- which is well within the upper limit of the designed dynamic range. The left side of the module gives similar results, and the data is shown in Table ~\ref{tab:summary}.
 
 \begin{table}\footnotesize
 	\centering
@@ -403,12 +393,26 @@ It can calculated that the relative resolution of the PSD detector module for Ar
 	\end{tabulary}
 \end{table}
 
-\begin{figure}
- \centering
- \includegraphics[width=90mm]{Ar}
-\caption{Pulse height spectrum of $^{40}Ar$ recorded by dynode 5.}
-\label{fig:Ar}
+The Dy8 channels were found to be saturated in this test and only the data from Dy5 channels could be used for analysis.
+Fig.~\ref{fig:Ar} shows the raw ADC spectrum of the Dy5 channel from the right-side PMT (the left-side PMT has a similar result).
+The long tail on the left of the primary $^{40}Ar$ peak corresponds to the light nuclei which are the products of $^{40}Ar$ interacting with materials in front of the PSD detector module.
+Using the Gaussian distribution, the mean value ($\mu_{Ar}$) and the standard deviation ($\sigma_{Ar}$) of the primary peak could be obtained as shown in Fig.~\ref{fig:Ar}.
+The fitting results from both sides are summarized in Table~\ref{tab:ion}, in which the noise RMS of the FEE channels are also listed.
+It can calculated that the relative resolution of the PSD detector module for $^{40}Ar$ is about \SI{4.5}{\percent} and \SI{4.2}{\percent}.
+
+\begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=80mm]{Ar}
+ 	\caption{Pulse height spectrum of $^{40}Ar$ recorded by dynode 5.}
+ 	\label{fig:Ar}
 \end{figure}
+ 
+Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of Ar in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{219.9}{MIPs} and \SI{216.4}{MIPs} for the left-side and right-side respectively.
+A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{271.5}{MIPs} and \SI{267.2}{MIPs} ,which are both consistent with our expected value of \SI{270}{MIPs} from the AMS02-TOF beam test (see Sec.~\ref{sec:requirement}). 
+On the other hand, the light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent} based on the relative resolution for Ar.
+Taking into account other effects such as the traverse length and the light attenuation described in Sec.\ref{sec:requirement}, the largest signal of Ca in Dy5 is estimated to be \SI{1166.3}{MIPs} and \SI{1136.3}{MIPs}.
+These values are well within the upper limit of the readout dynamic ranges which have been obtained in the cosmic ray test, and this verifies the PSD large dynamic readout design.
+
 
 \section{Conclusion}
 \label{sec:conclusion}
