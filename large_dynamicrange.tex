@@ -112,7 +112,7 @@ By measuring the deposited energy, PSD serves as an anti-coincidence detector fo
 As the deposited energy of the charged particle in PSD is approximately proportional to $Z^2$, this implies a wide range of output signal amplitudes and requires a large dynamic range design for the PSD readout unit.
 On the other hand, the available weight and power on the satellite is limited and this imposes a constraint in the selection of the electronic components of the readout unit.
 
-In this paper, the readout system of PSD with large dynamic range and  low power consumption is reported.
+In this paper, the readout design of PSD with large dynamic range and low power consumption is reported.
 An estimation of the dynamic range needed by PSD is presented in Sec.~\ref{sec:requirement}.
 The readout scheme is determined based on this estimation, and the detailed design process and the composition of the readout unit are described in Sec.~\ref{sec:design}.
 Verification tests for the dynamic range have also been carried out on a prototype detector module using cosmic ray and relativistic heavy ion beam.
@@ -131,7 +131,7 @@ To make things more clear, we define the mean light yield produced by a singly c
 The light yield of the plastic scintillator in response to different charged particles forms the basis for the dynamic range estimation.
 Due to the quenching effect, the scintillation efficiency of organic scintillator is not a constant, but a nonlinear function of the energy loss $dE/dx$, which can be described empirically by the Birks' law~\cite{birks_theory_2013}.
  However, for heavy ions in the relativistic region, the scintillation mechanism is much more complicated and the Birks' law fails to apply directly. 
- Several modified models ~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks' law, nevertheless large discrepancy exists among them when extrapolating to the high-Z nuclides.
+ Several modified models ~\cite{chou_nature_1952,tarle_cosmic_1979,menchaca-rocha_response_1999,matsufuji_response_1999} have been proposed to extend the Birks' law, nevertheless large discrepancy exists between them when extrapolating to the high-Z nuclides.
 Due to these theoretical difficulties, our estimation of the light yield is based on the relativistic heavy ion beam test result of AMS-02 TOF detector~\cite{bindi2005performance,bindi_calibration_2014}, which also uses EJ-200 with the same thickness as the detection material.
 According to the parameters from \cite{bindi2005performance}, the light output of calcium (Z=20) is about 270 times larger than that of proton (Z=1).
 As all singly charged minimum ionization particles have approximately the same energy loss in the PSD bar, they have approximately the same light output as well.
@@ -145,7 +145,7 @@ This in turn doubles the energy loss as well as the light yield and extends the 
 
 %Moreover, the statistical nature of the ionizing and scintillation process should be also taken into account. 
 Both the process of energy loss in the plastic scintillator and the associated scintillation are intrinsically random, leading to the light yield fluctuation.
-The light yield fluctuation follows the Gaussian distribution.
+The light yield fluctuation follows the Gaussian distribution and also contributes to the dynamic range requirement.
 Assuming the standard deviation ($\sigma$) of the fluctuation is \SI{10}{\percent} and 5$\sigma$ is adopted for the full coverage, the upper limit of the light yield extends to \SI{675}{MIPs} and the lower limit reduces to \SI{0.75}{MIPs}.
 %measurable energy deposition per scintillator bar up to 675 MIPs is required as a 5$\sigma$ width is accepted. And the lower limit of measurement must be smaller than \SI{0.75}{MIP} on the other hand.
 
@@ -177,20 +177,20 @@ VA160 is a low power and radiation harden chip designed specifically for the DAM
 It has 32 input channels, and each channel has a full chain of charge sensitive pre-amplifier, CR-RC shaping amplifier and sample-hold circuit for independent charge measurement.
 
 To cover the required dynamic range of about 4 orders of magnitude, it's found that a single VA160 channel is not sufficient. 
-Thus, the readout scheme which uses a PMT with double dynode outputs and connects the output signals to separate VA160 channels has been proposed and adopted for the readout system of PSD. 
+Thus, the readout scheme which uses a PMT with double-dynodes signal extraction and connects the output signals to separate VA160 channels has been proposed and adopted for the readout system of PSD. 
 Two measurement ranges can be achieved in this way, with the high-gain dynode channel for small light output measurement and the low-gain dynode channel for large light output measurement. 
 To reduce the crosstalk between th low-gain and high-gain channels, signals from the two dynodes are connected to different VA160 chips as shown in Fig.\ref{fig:readout_scheme}.
 
 The front-end electronic (FEE) board based on VA160 has been developed and fully tested by the PSD group~\cite{fee}. 
 The analog to digital conversion is performed by a 14-bit ADC. 
 The test result~\cite{fee} shows that a linear range up to \SI{12}{\pico\coulomb} is guaranteed for each FEE channel and the input noise level ($\sigma$) of the whole PSD readout channel is expected to be smaller than \SI{6}{\femto\coulomb}. 
-This implies that the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb} as 5$\sigma$ separation is required, i.e. \SI{1}{MIP}$\geq$\SI{300}{\femto\coulomb}.
+This implies that the response of \SI{0.1}{MIPs} shall be larger than \SI{30}{\femto\coulomb} as a 5$\sigma$ separation is required, i.e. \SI{1}{MIP}$\geq$\SI{300}{\femto\coulomb}.
 Thus the dynamic range from \SI{0.1}{MIPs} to \SI{40}{MIPs} can be covered by the high-gain dynode channel, and the remaining range shall be covered by the low-gain dynode channel.
 This constrains the gain ratio between the two dynode stages to be $\geq$35.
 
 \subsection{Selection of the dynode stages}
 \label{sec:dynodes_selection}
-To select the appropriate dynode stages for readout, a rough estimation of the mean number of photon electrons (PE) generated by one MIP in the center of the bar is carried out.
+To select the appropriate dynode stages for signal extraction, a rough estimation of the mean number of photon electrons (PE) generated by one MIP in the center of the bar is carried out.
 
 The mean energy deposit of the MIP particle in a \SI{10}{\milli\meter} plastic scintillator is about \SI{2.0}{\mega\electronvolt}~\cite{olive_review_2014}, and the scintillation efficiency of EJ-200 is \SI[per-mode=symbol]{e4}{photons\per\mega\electronvolt}~\cite{scintillator}.
 The scintillation photons are emitted isotropically in all directions.
@@ -343,7 +343,7 @@ And the dynamic range of the Dy8 channel is \SI{32}{MIPs} and \SI{33}{MIPs} for 
 
 The MIP measurements were then carried out every \SI{10}{\centi\meter} along the bar and the MPV value at each position was extracted as described above.
 The MPV variance along the bar is depicted in Fig.~\ref{fig:attenuation}, where the values are normalized to the middle position.
-As the MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
+As the MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} also represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
 \begin{equation}
 \label{eq:attenuation}
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
@@ -411,10 +411,10 @@ It can calculated that the relative resolution of the PSD detector module for $^
 \end{figure}
  
 Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of Ar in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{219.9}{MIPs} and \SI{216.4}{MIPs} for the left-side and right-side respectively.
-A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{271.5}{MIPs} and \SI{267.2}{MIPs} ,which are both consistent with our expected value of \SI{270}{MIPs} from the AMS02-TOF beam test (see Sec.~\ref{sec:requirement}). 
+A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{271.5}{MIPs} and \SI{267.2}{MIPs} ,which are both consistent with our expected value of \SI{270}{MIPs} from the AMS-02 TOF beam test (see Sec.~\ref{sec:requirement}). 
 On the other hand, the light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent} based on the relative resolution for Ar.
-Taking into account other effects such as the traverse length and the light attenuation described in Sec.\ref{sec:requirement}, the largest signal of Ca in Dy5 is estimated to be \SI{1166.3}{MIPs} and \SI{1136.3}{MIPs}.
-These values are well within the upper limit of the readout dynamic ranges which have been obtained in the cosmic ray test, and this verifies the PSD large dynamic readout design.
+Taking into account other effects such as the traverse length and the light attenuation, the largest signal of Ca in Dy5 is estimated to be \SI{1166.3}{MIPs} and \SI{1136.3}{MIPs}.
+These values are well within the upper limit of the dynamic ranges of this detector module which have been obtained in the cosmic ray test, and this verifies the PSD large dynamic readout design.
 
 
 \section{Conclusion}
