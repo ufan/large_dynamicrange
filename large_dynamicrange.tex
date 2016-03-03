@@ -69,7 +69,7 @@
 \begin{abstract}
 
 A large dynamic range is required by the Plastic Scintillator Detector (PSD) of DArk Matter Particle Explorer (DAMPE) to detect particles from electron to heavy ions with $Z\leq 20$.
-The readout design based on the double-dynodes signal extraction from the photomultiplier tube has been proposed and adopted by PSD to expand the dynamic range. 
+To expand the dynamic range, the readout design based on the double-dynodes signal extraction from the photomultiplier tube has been proposed and adopted by PSD. 
 To verify this design, a prototype detector module has been constructed and tested with cosmic ray and relativistic ion beam.
 The results match with the estimation and the readout unit could easily cover the required dynamic range of about 4 orders of magnitude.
 
@@ -108,15 +108,14 @@ The bars are made of EJ-200~\cite{scintillator}, with the dimension of $\SI{884}
 Each bar  is readout at both ends by the Hamamatsu R4443 photomultiplier tube (PMT) , which is a low noise PMT ruggedized for space usage~\cite{r4443}. 
 The EJ-560~\cite{scintillator} optical pads are used as the  coupling material between the bar end and the PMT to assure the proper transmission of the scintillation light as well as to avoid the hard contact between them.
 
-By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for cosmic heavy ions up to Z=20.
+By measuring the deposited energy, PSD serves as an anti-coincidence detector for e/$\gamma$ discrimination as well as a charge detector for heavy ions up to Z=20.
 As the deposited energy of the charged particle in PSD is approximately proportional to $Z^2$, this implies a wide range of output signal amplitudes and requires a large dynamic range design for the PSD readout unit.
 On the other hand, the available weight and power on the satellite is limited and this imposes a constraint in the selection of the electronic components of the readout unit.
 
 In this paper, the readout design of PSD with large dynamic range and low power consumption is reported.
 An estimation of the dynamic range needed by PSD is presented in Sec.~\ref{sec:requirement}.
 The readout scheme is determined based on this estimation, and the detailed design process and the composition of the readout unit are described in Sec.~\ref{sec:design}.
-Verification tests for the dynamic range have also been carried out on a prototype detector module using cosmic ray and relativistic heavy ion beam.
-The test results are discussed in Sec.~\ref{sec:result}.
+Verification tests for the dynamic range have also been carried out on a prototype detector module using cosmic ray and relativistic heavy ion beam and the test results are discussed in Sec.~\ref{sec:result}.
 %The detailed description of the design is presented in Sec.\ref{sec:requirement} and Sec.\ref{sec:design}, and the test results are discussed in Sec.\ref{sec:result}.
 
 
@@ -245,7 +244,7 @@ Combing Dy8 and Dy5, the readout unit of PSD achieves the required dynamic range
 \label{fig:divider}
 \end{figure*}
 
-A cathode grounding voltage divider circuit, which can extract current pulses from both Dy5 and Dy8, is designed as shown in Fig.\ref{fig:divider}.
+A cathode grounding voltage divider circuit, which can extract current pulses from both Dy5 and Dy8, is designed as shown in Fig.~\ref{fig:divider}.
 The uniform voltage distribution ratio is adopted instead of the tapered one because the space charge effect is not an issue at the PSD light intensity level.
 
 In this design, the parallel decoupling capacitors C1$\sim$C7 are added to keep the last few interstage voltage drops stable. Two serial-chained capacitors (C8/C9 and C11/C12) are used in each readout branch to provide robustness, in case that one of them breaks down and the other one can still protect the following circuits. 
@@ -276,11 +275,11 @@ The calibration parameters are listed in Table~\ref{tab:calibration}, and they w
 	\end{tabulary}
 \end{table}
 
-\subsection{Results from cosmic ray tests}
+\subsection{Results from cosmic ray test}
 \label{sec:cosmicray}
 Cosmic ray muons at the sea level are singly charged minimum ionization particles, so they are widely used to study the MIP response of detectors in the laboratory.
 The layout of the test setup we used to study the MIP response of the prototype PSD detector module is shown in Fig.~\ref{fig:cosmic_test}.
-Two small plastic scintillator detectors ($\SI{10}{mm} \times \SI{10}{mm} \times \SI{10}{mm}$), S1 and S2, are used to tag the cosmic rays of vertical incidence, and they are fixed in a movable support which can move along the bar direction.
+Two small plastic scintillator detectors ($\SI{10}{mm} \times \SI{10}{mm} \times \SI{10}{mm}$), S1 and S2, are used to tag the cosmic rays of vertical incidence and they are fixed in a movable support which can move along the bar direction.
 In this way, the response difference at various positions of the detector module can be investigated.
 
 \begin{figure}[h]
@@ -330,7 +329,7 @@ In this way, the response difference at various positions of the detector module
 The tagging detectors were first moved to the middle position of the PSD bar to study the MIP response at the center of the detector module.
 The signal of Dy5 was small in this test so that the data from the Dy8 channels were utilized for data analysis.
 Fig.~\ref{fig:mip} shows the raw ADC spectrum of the Dy8 channel from the right-side PMT, with the MIP and the pedestal spectrum in the same figure.
-It can be seen the MIP peak is clearly separated from the pedestal noise and the MIP spectrum follows the Landau distribution.
+It can be seen that the MIP peak is clearly separated from the pedestal noise and the MIP spectrum follows the Landau distribution.
 The most probable value (MPV, $\mu_{mpv}$) of the distribution and the resolution ($\sigma_{mpv}$) can be extracted by fitting the lower half of the MIP peak using the Gaussian distribution, as shown in Fig.~\ref{fig:mip}.
 The fitting results from both sides are summarized in Table~\ref{tab:mip}, together with noise RMS ($\sigma_{noise}$) of the corresponding channels.
 %As the MPV equals to \SI{1}{MIP} as defined in Sec.~\ref{sec:requirement}, the lower limit of the readout dynamic range can be calculated as $5\sigma_{noise}/\mu_{mpv}$, which gives \SI{0.073}{MIPs} and \SI{0.054}{MIPs} for the right-side and left-side respectively.
@@ -349,7 +348,7 @@ As the MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} 
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
 \end{equation}
 where $L$ is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
-Based on the fitting results, the light output ratio between the near end and the center ($\eta_{max}$) and the ratio between the far end and the center ($\eta_{min}$) are calculated,  and listed in Table~\ref{tab:mip}.
+Based on the fitting results, the light output ratio between the near end and the center ($\eta_{max}$) and the ratio between the far end and the center ($\eta_{min}$) are calculated,  and they are listed in Table~\ref{tab:mip}.
 $\eta_{max}$ and $\eta_{min}$ can be used to calculate the maximum and the minimum light output of the PSD bar.
 
 The relative gain between Dy8 and Dy5 was also extracted from the cosmic ray test by merging the data from all tested positions.
@@ -401,7 +400,7 @@ Fig.~\ref{fig:Ar} shows the raw ADC spectrum of the Dy5 channel from the right-s
 The long tail on the left of the primary $^{40}Ar$ peak corresponds to the light nuclei which are the products of $^{40}Ar$ interacting with materials in front of the PSD detector module.
 Using the Gaussian distribution, the mean value ($\mu_{Ar}$) and the standard deviation ($\sigma_{Ar}$) of the primary peak could be obtained as shown in Fig.~\ref{fig:Ar}.
 The fitting results from both sides are summarized in Table~\ref{tab:ion}, in which the noise RMS of the FEE channels are also listed.
-It can calculated that the relative resolution of the PSD detector module for $^{40}Ar$ is about \SI{4.5}{\percent} and \SI{4.2}{\percent}.
+The relative resolution of the PSD detector module for $^{40}Ar$ is calculated and it's about \SI{4.5}{\percent} and \SI{4.2}{\percent} for the left and right side respectively.
 
 \begin{figure}[h]
  	\centering
@@ -410,17 +409,17 @@ It can calculated that the relative resolution of the PSD detector module for $^
  	\label{fig:Ar}
 \end{figure}
  
-Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of Ar in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{219.9}{MIPs} and \SI{216.4}{MIPs} for the left-side and right-side respectively.
-A linear extrapolation from Ar (Z=18) to Ca (Z=10) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{271.5}{MIPs} and \SI{267.2}{MIPs} ,which are both consistent with our expected value of \SI{270}{MIPs} from the AMS-02 TOF beam test (see Sec.~\ref{sec:requirement}). 
-On the other hand, the light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent} based on the relative resolution for Ar.
-Taking into account other effects such as the traverse length and the light attenuation, the largest signal of Ca in Dy5 is estimated to be \SI{1166.3}{MIPs} and \SI{1136.3}{MIPs}.
-These values are well within the upper limit of the dynamic ranges of this detector module which have been obtained in the cosmic ray test, and this verifies the PSD large dynamic readout design.
+Combining the results from the cosmic ray test (see Table~\ref{tab:mip}), the light yield of Ar in the bar can be calculated as ${\mu_{Ar}\cdot dy58} / {\mu_{mpv}}$, which gives \SI{220}{MIPs} and \SI{216}{MIPs} for the left and right side respectively.
+A linear extrapolation from Ar (Z=18) to Ca (Z=20) based on the $Z^2$ dependency (i.e. without considering the quenching effect) gives that the light yield of Ca shall be about \SI{272}{MIPs} and \SI{267}{MIPs} ,which are both consistent with our expected value of \SI{270}{MIPs} from the AMS-02 TOF beam test (see Sec.~\ref{sec:requirement}). 
+On the other hand, the light yield fluctuation of Ca in PSD bar can be reasonably assumed to be \SI{5}{\percent} based on the relative resolution for $^{40}Ar$.
+Taking into account other effects such as the traverse length and the light attenuation, the largest signal of Ca in Dy5 is estimated to be \SI{1166}{MIPs} and \SI{1136}{MIPs}.
+The two values are well within the upper limit of the dynamic ranges of this detector module which have been obtained in the cosmic ray test, and this verifies the PSD large dynamic readout design.
 
 
 \section{Conclusion}
 \label{sec:conclusion}
 A large dynamic range readout unit with low power consumption has been successfully designed for the PSD detector of DAMPE.
-Tests on a prototype detector module using cosmic ray and relativistic ion beam show that the readout unit could easily cover the dynamic range from 0.1 MIPs to 1400 MIPs, which is needed by PSD for measuring particles from electron to heavy ions with $Z\leq 20$ simultaneously 
+Tests on a prototype detector module using cosmic ray and relativistic ion beam show that the readout unit could easily cover the dynamic range from 0.1 MIPs to 1400 MIPs, which is needed by PSD for measuring particles from electron to heavy ions with $Z\leq 20$ simultaneously.
 However, an adjustment of the PMT supplying voltage is required to obtain the optimal performance and make full use of the measurement range. 
 Due to the large individual difference of PMTs, it is also suggested that a detailed test of the readout PMTs be performed to reject tubes with extreme characteristics before the massive production and installation.
 
