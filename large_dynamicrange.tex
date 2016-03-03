@@ -309,14 +309,14 @@ In this way, the response difference at various positions of the detector module
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=80mm]{mip}
-	\caption{The MIPs response recorded by dynode 8 in the middle of the PSD scintillator bar. The noise spectrum of this readout channel are shown in the same figure.}
+	\caption{The MIP response (blue filling) at the center of the PSD bar, recorded by Dy8 of the right-side PMT. The black spectrum is the pedestal of the same channel and the red line is the Gaussian fit of the lower-half of the MIP peak.}
 	\label{fig:mip}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=80mm]{attenuation}
-	\caption{The relative light output measured by the end PMTs at different hit positions along the PSD scintillator bar.}
+	\caption{The variance of the relative light output along the PSD bar measured by the two end PMTs (the black circles are data points from the right-side PMT and the blue triangles from the left-side PMT). The lines are the fitting results using Eq.~\ref{eq:attenuation}.}
 	\label{fig:attenuation}
 \end{figure}
 
@@ -345,6 +345,7 @@ The MIP measurements were then carried out every \SI{10}{\centi\meter} along the
 The MPV variance along the bar is depicted in Fig.~\ref{fig:attenuation}, where the values are normalized to the middle position.
 As the MPV is proportional to the mean light output, Fig.~\ref{fig:attenuation} represents the light attenuation effect of the PSD bar and the data points can be fitted using the following model~\cite{taiuti_measurement_1996}:
 \begin{equation}
+\label{eq:attenuation}
 A(x)=C_0(e^{-x/\lambda} + \alpha e^{-(2L-x)/\lambda})
 \end{equation}
 where $L$ is the length of the bar, $\alpha$ is an empirical factor related to the fraction of photons reflected back from the far end of the bar and adding to the light intensity at the near end.
